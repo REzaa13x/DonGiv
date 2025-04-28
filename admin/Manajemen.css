@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transform: all 0.2s linear;
+}
+body {
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Menghilangkan scrollbar horizontal */
+}
+.sidebar {
+  background-color: #2563eb;
+  color: white; /* Warna teks putih agar kontras */
+  width: 250px; /* Lebar sidebar */
+  height: 100vh; /* Tinggi sidebar sesuai viewport */
+  padding: 20px; /* Padding untuk konten di dalam sidebar */
+  position: fixed; /* Sidebar tetap di tempat */
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek depth */
+}
+
+.sidebar a {
+  color: white; /* Warna teks putih */
+  padding: 10px 15px; /* Padding untuk item */
+  margin: 5px 0; /* Margin antar item */
+  border-radius: 5px; /* Sudut yang lebih lembut */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Animasi transisi */
+}
+
+.sidebar a:hover {
+  transform: translateX(0.3px); /* Geser sedikit ke kanan saat hover */
+}
+/* Submenu styling */
+.submenu {
+  display: none;
+}
+.submenu.active {
+  display: block;
+}
+/* Modal Styles */
+.modal {
+  display: none; /* Modal disembunyikan secara default */
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
+  width: 100vw; /* Ukuran lebar background */
+  height: 100vh; /* Ukuran tinggi background */
+  background-color: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
+  backdrop-filter: blur(5px); /* Blur latar belakang */
+  margin: 0; /* Pastikan margin 0 */
+  padding: 0; /* Pastikan padding 0 */
+  overflow: hidden; /* Pastikan overflow hidden */
+  box-sizing: border-box; /* Pastikan box-sizing border-box */
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto; /* Posisi modal di tengah layar */
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-bottom: 10px; /* Jarak antara judul dan paragraf */
+  color: black; /* Pastikan warna teks hitam */
+  font-size: 24px; /* Ukuran teks yang jelas */
+  font-weight: bold;
+}
+
+.modal-content p {
+  margin-bottom: 20px; /* Jarak antara paragraf dan tombol */
+  color: black; /* Pastikan warna teks hitam */
+  font-size: 16px; /* Ukuran teks yang jelas */
+}
+
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.confirm-button,
+.cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0 10px;
+}
+
+.confirm-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.confirm-button:hover {
+  background-color: #c82333;
+}
+
+.cancel-button {
+  background-color: #6c757d;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #5a6268;
+}
+/* Sidebar End */
+
+.header {
+  background-color: #2563eb;
+  padding: 20px;
+  border-bottom: 0.5px solid #ccc;
+  border-radius: 15px; /* Sesuaikan nilai sesuai keinginan */
+  margin-top: 10px;
+  margin-left: 270px;
+  margin-right: 15px;
+}
+
+.header .company-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.header .company-info h1 {
+  margin: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.header .company-info p {
+  margin: 0;
+  color: gray;
+}
+
+.content .action-button {
+  display: flex;
+  gap: 10px;
+}
+
+.content button {
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: filter 0.3s ease, background-color 0.3s ease; /* Tambahkan transisi */
+}
+
+.content button.import {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.content button.import:hover {
+  filter: brightness(90%);
+}
+
+.content button.add {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+.content button.add:hover {
+  background-color: #2563eb;
+}
+
+.content {
+  padding: 20px;
+}
+
+table {
+  width: 83%;
+  border-collapse: collapse;
+  background-color: #fff;
+  margin-top: 20px;
+  margin-left: 250px;
+}
+
+table th,
+table td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #f4f4f4;
+}
+
+.btn-tambah-donasi {
+  padding: 10px 20px;
+  background-color: #2563eb; /* Warna biru */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-tambah-donasi:hover {
+  background-color: #2563eb; /* Warna biru lebih gelap untuk hover */
+}
+
+.delete-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #e60000;
+}
+
+.search-bar {
+  margin-left: 250px;
+  flex: 1; /* Agar elemen ini mengambil ruang yang tersedia */
+  display: flex;
+  align-items: center;
+}
+
+/* Kontainer utama untuk search bar dan tombol */
+.search-bar-container {
+  display: flex;
+  align-items: center; /* Sejajarkan elemen secara vertikal */
+  justify-content: space-between; /* Jarak antar elemen diatur otomatis */
+  gap: 10px; /* Beri jarak antara search bar dan tombol */
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Input mengambil ruang yang tersedia, ikon di sebelah kanan */
+  align-items: center;
+  width: 100%; /* Sesuaikan lebar sesuai kebutuhan */
+  border: 1px solid #fff; /* Tambahkan border untuk search bar */
+  border-radius: 5px; /* Sudut melengkung */
+  padding: 5px 10px; /* Padding untuk input dan ikon */
+}
+
+.search-bar input {
+  border: none; /* Hilangkan border default input */
+  outline: none; /* Hilangkan outline saat input aktif */
+  font-size: 1rem;
+  padding: 5px; /* Padding untuk input */
+}
+
+.search-bar .fa-search {
+  color: #aaa; /* Warna ikon */
+  font-size: 1rem;
+  cursor: pointer; /* Ubah kursor saat hover */
+}
+
+.search-bar .fa-search:hover {
+  color: #2563eb; /* Ubah warna ikon saat hover */
+}
+
+.footer {
+  text-align: center;
+  font-size: 15px;
+}
