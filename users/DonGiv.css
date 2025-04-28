@@ -133,13 +133,13 @@ h1 {
   padding: 50px;
   min-height: 100vh;
   min-width: 100vw;
-  background: url(home1.jpg) center/cover no-repeat ;
+  background: url('../foto/home1.jpg') center/cover no-repeat ;
   background-size: cover;
-}
+}           
 
 .hero-text {
   position: relative;
-    top: -30px; /* Atur angka sesuai kebutuhan */
+    top: -30px; /*   angka sesuai kebutuhan */
     text-align: left;
     color: white;
     max-width: 600px; /* Batas lebar teks jika dibutuhkan */
