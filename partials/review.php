@@ -4,7 +4,7 @@
     <div class="slider">
       <!-- Slide 1 -->
       <div class="slide">
-        <img src="foto/presidenri.go.id-05022020111245-5e3a40bd7cdcb1.35250820-384x512.jpg" alt="Profile Picture" class="profile-img">
+        <img src="../foto/presidenri.go.id-05022020111245-5e3a40bd7cdcb1.35250820-384x512.jpg" alt="Profile Picture" class="profile-img">
         <p class="description">
           Website yang sangat mantap, saya bisa rajin berdonasi untuk anak-anak yang membutuhkan.
         </p>
@@ -12,7 +12,7 @@
       </div>
       <!-- Slide 2 -->
       <div class="slide">
-        <img src="foto/Prabowo_Subianto_2024_official_portrait.jpg" alt="Profile Picture" class="profile-img">
+        <img src="../foto/Prabowo_Subianto_2024_official_portrait.jpg" alt="Profile Picture" class="profile-img">
         <p class="description">
           Program ini memberi harapan dan membuka peluang besar untuk anak-anak meraih masa depan yang lebih cerah.
         </p>
@@ -20,7 +20,7 @@
       </div>
       <!-- Slide 3 -->
       <div class="slide">
-        <img src="foto/Gibran_Rakabuming_2024_official_portrait.jpg" alt="Profile Picture" class="profile-img">
+        <img src="../foto/Gibran_Rakabuming_2024_official_portrait.jpg" alt="Profile Picture" class="profile-img">
         <p class="description">
           Saya merasa terinspirasi dan ingin terus membantu lebih banyak anak-anak.
         </p>

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="footer-content">
       <div class="footer-section">
-        <img src="foto/Desain_tanpa_judul-removebg-preview.png">
+        <img src="../foto/Desain_tanpa_judul-removebg-preview.png">
         <p>Jl. Telekomunikasi No. 1, Bandung Terusan Buahbatu - Bojongsoang, Sukapura, Kec. Dayeuhkolot, Kabupaten Bandung, Jawa Barat 40257</p>
         <p>
           <a href="mailto:kindness@DonGiv.com">kindness@DonGiv.com</a><br>
@@ -11,11 +11,11 @@
         </p>
         <h4>Ikuti Kami</h4>
         <ul class="social-icons">
-          <li><a href="#"><img src="foto/facebook.png" alt="Facebook"></a></li>
-          <li><a href="#"><img src="foto/instagram.png" alt="Instagram"></a></li>
-          <li><a href="#"><img src="foto/twitter.png" alt="Twitter"></a></li>
-          <li><a href="#"><img src="foto/tiktok.png" alt="TikTok"></a></li>
-          <li><a href="#"><img src="foto/linkedin.png" alt="LinkedIn"></a></li>
+          <li><a href="#"><img src="../foto/facebook.png" alt="Facebook"></a></li>
+          <li><a href="#"><img src="../foto/instagram.png" alt="Instagram"></a></li>
+          <li><a href="#"><img src="../foto/twitter.png" alt="Twitter"></a></li>
+          <li><a href="#"><img src="../foto/tiktok.png" alt="TikTok"></a></li>
+          <li><a href="#"><img src="../foto/linkedin.png" alt="LinkedIn"></a></li>
         </ul>
       </div>
 
@@ -56,8 +56,8 @@
         <div class="footer-section download-app">
           <h4>Download App</h4>
           <div class="app-links">
-            <a href="#"><img src="foto/play-store-logo-nisi-filters-australia-11.png" alt="Google Play"></a>
-            <a href="#"><img src="foto/ap.png" alt="App Store"></a>
+            <a href="#"><img src="../foto/play-store-logo-nisi-filters-australia-11.png" alt="Google Play"></a>
+            <a href="#"><img src="../foto/ap.png" alt="App Store"></a>
           </div>
         </div>
       </div>

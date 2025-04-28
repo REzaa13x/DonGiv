@@ -6,7 +6,7 @@
     <div class="cards">
       <!-- Card 1 -->
       <div class="card">
-        <img src="foto/bencana-longsor-di-kabupaten-bandung-barat-3_169.jpeg.jpg" alt="Image 1">
+        <img src="../foto/bencana-longsor-di-kabupaten-bandung-barat-3_169.jpeg.jpg" alt="Image 1">
         <div class="card-content">
           <span class="tag">Campaign</span>
           <small>21 November 2024</small>
@@ -17,7 +17,7 @@
       </div>
       <!-- Card 2 -->
       <div class="card">
-        <img src="foto/download (1).jpeg.jpg" alt="Image 2">
+        <img src="../foto/download (1).jpeg.jpg" alt="Image 2">
         <div class="card-content">
           <span class="tag">Appeal</span>
           <small>21 November 2024</small>
@@ -28,7 +28,7 @@
       </div>
       <!-- Card 3 -->
       <div class="card">
-        <img src="foto/wanita-palestina-bersama-anaknya-di-dekat-rumahnya-yang-hancur-_200114213428-417.jpg" alt="Image 3">
+        <img src="../foto/wanita-palestina-bersama-anaknya-di-dekat-rumahnya-yang-hancur-_200114213428-417.jpg" alt="Image 3">
         <div class="card-content">
           <span class="tag">Statement</span>
           <small>21 November 2024</small>
@@ -39,7 +39,7 @@
       </div>
       <!-- Card 4 -->
       <div class="card">
-        <img src="foto/article-2698150-1FC8751B00000578-652_964x623.jpg" alt="Image 4">
+        <img src="../foto/article-2698150-1FC8751B00000578-652_964x623.jpg" alt="Image 4">
         <div class="card-content">
           <span class="tag">APPEAL</span>
           <small>19 November 2024</small>

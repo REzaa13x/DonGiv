@@ -44,7 +44,7 @@ $email = $_SESSION['email'] ?? 'name@gmail.com';
   <nav>
     <div class="nav-container">
       <a href="DonGiv.php" class="nav-logo">
-        <img src="foto/1-removebg-preview (1).png" alt="DonGiv-Logo" />
+        <img src="../foto/1-removebg-preview (1).png" alt="DonGiv-Logo" />
         <span>DonGiv</span>
       </a>
 
@@ -56,7 +56,7 @@ $email = $_SESSION['email'] ?? 'name@gmail.com';
 
         <!-- Dropdown User -->
         <div class="dropdown">
-          <img src="foto/user.png" alt="User" id="dropdown-btn" />
+          <img src="../foto/user.png" alt="User" id="dropdown-btn" />
           <div class="dropdown-menu">
             <div class="dropdown-user-info">
               <p class="font-semibold"><?= htmlspecialchars($username) ?></p>
@@ -72,12 +72,12 @@ $email = $_SESSION['email'] ?? 'name@gmail.com';
   </nav>  ```````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 
   <!-- Main Content -->
-  <?php include 'partials/hero.php'; ?>
-  <?php include 'partials/donations.php'; ?>
-  <?php include 'partials/review.php'; ?>
-  <?php include 'partials/about.php'; ?>
-  <?php include 'partials/contact.php'; ?>
-  <?php include 'partials/footer.php'; ?>
+  <?php include '../partials/hero.php'; ?>
+  <?php include '../partials/donations.php'; ?>
+  <?php include '../partials/review.php'; ?>
+  <?php include '../partials/about.php'; ?>
+  <?php include '../partials/contact.php'; ?>
+  <?php include '../partials/footer.php'; ?>
 
   <!-- JS -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

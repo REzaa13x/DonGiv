@@ -9,7 +9,7 @@
       </div>
       <!-- Image Section -->
       <div class="welcome-image">
-        <img src="foto/article-2698150-1FC8751B00000578-652_964x623.jpg" alt="Welcome Image">
+        <img src="../foto/article-2698150-1FC8751B00000578-652_964x623.jpg" alt="Welcome Image">
       </div>
     </div>
   </section>
