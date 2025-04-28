@@ -1,5 +1,5 @@
 <?php
-include '../koneksi.php'; // naik satu folder (karena di dalam /auth/)
+include '../users/koneksi.php'; // naik satu folder (karena di dalam /auth/)
 
 $name = $_POST['name'];
 $email = $_POST['email'];

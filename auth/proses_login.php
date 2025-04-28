@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../koneksi.php';
+include '../users/koneksi.php';
 
 // Tangkap input
 $email = mysqli_real_escape_string($koneksi, $_POST['email']);
@@ -23,7 +23,7 @@ if ($data && password_verify($password, $data['password'])) {
     $_SESSION['user_name'] = $data['name'];
     
     // Redirect ke halaman utama
-    header('Location: ../DonGiv.php');
+    header('Location: ../users/DonGiv.php');
     exit;
 } else {
     echo "<script>alert('Email atau Password salah!'); window.location='login.php';</script>";

@@ -64,7 +64,7 @@ $email = $_SESSION['email'] ?? 'name@gmail.com';
             </div>
             <a href="prof.php">Profile</a>
             <a href="setting.php">Settings</a>
-            <a href="auth/logout.php">Logout</a>
+            <a href="../auth/logout.php">Logout</a>
           </div>
         </div>
       </div>

@@ -3,12 +3,12 @@ session_start();
 
 // Kalau sudah login, langsung redirect ke DonGiv.php
 if (isset($_SESSION['user_id'])) {
-    header('Location: ../DonGiv.php');
+    header('Location: ../users/DonGiv.php');
     exit();
 }
 
 // Panggil file koneksi
-include '../koneksi.php';
+include '../users/koneksi.php';
 ?>
 
 <!DOCTYPE html>
