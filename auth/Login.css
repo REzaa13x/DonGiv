@@ -145,3 +145,11 @@ input {
     font-weight: bold;
     font-size: 14px;
 }
+select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    width: 100%;
+}

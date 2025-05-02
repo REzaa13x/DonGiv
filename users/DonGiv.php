@@ -1,5 +1,14 @@
 <?php
+include './koneksi.php';
 session_start();
+
+$id = $_SESSION['user_id'];
+$query = mysqli_query($koneksi, "SELECT * FROM users WHERE id='$id' LIMIT 1");
+$data = mysqli_fetch_assoc($query);
+?>
+
+<?php
+
 
 // Cek apakah user sudah login
 if (!isset($_SESSION['user_id'])) {
@@ -60,7 +69,7 @@ $email = $_SESSION['email'] ?? 'name@gmail.com';
           <div class="dropdown-menu">
             <div class="dropdown-user-info">
               <p class="font-semibold"><?= htmlspecialchars($username) ?></p>
-              <p class="text-sm"><?= htmlspecialchars($email) ?></p>
+              <p class="text-sm"><?=$data['email'] ?></p>
             </div>
             <a href="prof.php">Profile</a>
             <a href="setting.php">Settings</a>

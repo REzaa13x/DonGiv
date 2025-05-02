@@ -4,6 +4,7 @@ include '../users/koneksi.php'; // naik satu folder (karena di dalam /auth/)
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$role = $_POST['role'];
 
 // Cek email sudah ada atau belum
 $cek = mysqli_query($koneksi, "SELECT * FROM users WHERE email='$email'");
@@ -13,7 +14,7 @@ if (mysqli_num_rows($cek) > 0) {
 }
 
 // Kalau email belum ada, baru insert
-$query = mysqli_query($koneksi, "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')");
+$query = mysqli_query($koneksi, "INSERT INTO users (name, email, password, role) VALUES ('$name', '$email', '$password', '$role')");
 
 if ($query) {
     echo "<script>alert('Pendaftaran berhasil! Silakan login.'); window.location='Login.php';</script>";

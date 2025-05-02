@@ -1,8 +1,8 @@
 <?php
-$host = "localhost"; // nama host
-$user = "root"; // username database
-$pass = ""; // password database
-$db   = "dongiv"; // nama database sesuai SQL tadi
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db   = "tubes_webpro"; // database baru yang kamu pilih
 
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 
