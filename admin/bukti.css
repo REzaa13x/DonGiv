@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transform: all 0.2s linear;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.receipt {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Header */
+.receipt .header {
+  margin-bottom: 20px;
+}
+
+.receipt .header .icon {
+  font-size: 50px;
+  color: #2ecc71;
+  margin-bottom: 10px;
+}
+
+.receipt .header h1 {
+  font-size: 24px;
+  margin: 0;
+  color: #2a5298;
+}
+
+.receipt .header .subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Informasi Pembayaran */
+.receipt .info {
+  text-align: left;
+  margin: 20px 0;
+}
+
+.receipt .info .info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.receipt .info .info-item .label {
+  font-weight: bold;
+  color: #2a5298;
+  width: 40%; /* Tambahkan lebar untuk label */
+  margin-right: 10px;
+}
+
+.receipt .info .value {
+  text-align: right;
+  color: #333;
+  width: 60%; /* Tambahkan lebar untuk value */
+}
+.receipt .info .value.success {
+  color: #34c759; /* Ubah warna menjadi hijau */
+}
+
+/* Footer */
+.receipt .footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Tombol Kembali */
+.receipt .button {
+  margin-top: 20px;
+}
+
+.receipt .button a {
+  background-color: #2a5298;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.receipt .button a:hover {
+  background-color: #1e3c72;
+}

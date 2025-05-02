@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Donasi</title>
+    <link rel="stylesheet" href="Manajemen.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="sidebar text-white w-64 py-6 px-4 fixed h-full">
+      <h2 class="text-2xl font-bold mb-6 flex items-center">
+        <i class="fas fa-hand-holding-heart mr-2"></i> DonGiv
+      </h2>
+      <nav class="space-y-2">
+        <a
+          href="Index.php"
+          class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center"
+        >
+          <i class="fas fa-home mr-2"></i> Dashboard
+        </a>
+        <div class="relative">
+          <a
+            href="#"
+            class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center justify-between"
+            onclick="toggleSubmenu('donation-submenu', event)"
+          >
+            <span><i class="fas fa-donate mr-2"></i> Management</span>
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <div
+            id="donation-submenu"
+            class="submenu bg-blue-800 mt-2 rounded-md"
+          >
+            <a
+              href="notifikasi.php"
+              class="block py-2 px-6 hover:bg-blue-900 rounded-md"
+            >
+              Notifikasi dan Email
+            </a>
+            <a
+              href="Manajemen.php"
+              class="block py-2 px-6 hover:bg-blue-900 rounded-md"
+            >
+              Donation
+            </a>
+          </div>
+        </div>
+        <a
+          href="Salur.php"
+          class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center"
+        >
+          <i class="fas fa-share-alt mr-2"></i> Channel
+        </a>
+        <a
+          href="Finansial.php"
+          class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center"
+        >
+          <i class="fas fa-wallet mr-2"></i> Finance
+        </a>
+        <a
+          href="#"
+          class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center"
+          onclick="openLogoutModal()"
+        >
+          <i class="fas fa-sign-out-alt mr-2"></i> Log Out
+        </a>
+        <div id="logoutModal" class="modal">
+          <div class="modal-content">
+            <h2>Log Out</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-buttons">
+              <button class="confirm-button" onclick="confirmLogout()">
+                Yes, Log Out
+              </button>
+              <button class="cancel-button" onclick="closeLogoutModal()">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <header class="header">
+      <div class="company-info">
+        <h1><i class="fas fa-hand-holding-heart"></i> Manajemen Donasi</h1>
+      </div>
+    </header>
+
+    <main class="content">
+      <div class="search-bar-container">
+        <div class="search-bar">
+          <input type="text" placeholder="Cari donasi..." />
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="action-button">
+          <button
+            onclick="location.href='Tambah.php'"
+            class="add"
+          >
+            <i class="fas fa-plus"></i> Tambah Donasi
+          </button>
+        </div>
+      </div>
+
+      <section class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Donasi</th>
+              <th>Penyaluran</th>
+              <th>Jumlah Uang Masuk</th>
+              <th>Target Dana</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Terlantar dan kelaparan! Selamatkan anabul Jalanan</td>
+              <td>Online</td>
+              <td>Rp545.000,00</td>
+              <td>Rp2.000.000,00</td>
+              <td>
+                <button class="delete-btn" onclick="confirmDelete(this)">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Donasi Anak</td>
+              <td>Online</td>
+              <td>Rp545.000,00</td>
+              <td>Rp2.000.000,00</td>
+              <td>
+                <button class="delete-btn" onclick="confirmDelete(this)">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Palestina sedang diujung tanduk</td>
+              <td>Online</td>
+              <td>Rp545.000,00</td>
+              <td>Rp2.000.000,00</td>
+              <td>
+                <button class="delete-btn" onclick="confirmDelete(this)">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Banjir Menimpa Sulawesi! Segera berikan bantuan</td>
+              <td>Online</td>
+              <td>Rp545.000,00</td>
+              <td>Rp2.000.000,00</td>
+              <td>
+                <button class="delete-btn" onclick="confirmDelete(this)">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Banjir Menimpa Sulawesi! Segera berikan bantuan</td>
+              <td>Online</td>
+              <td>Rp545.000,00</td>
+              <td>Rp2.000.000,00</td>
+              <td>
+                <button class="delete-btn" onclick="confirmDelete(this)">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Banjir Menimpa Sulawesi! Segera berikan bantuan</td>
+              <td>Online</td>
+              <td>Rp545.000,00</td>
+              <td>Rp2.000.000,00</td>
+              <td>
+                <button class="delete-btn" onclick="confirmDelete(this)">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Banjir Menimpa Sulawesi! Segera berikan bantuan</td>
+              <td>Online</td>
+              <td>Rp545.000,00</td>
+              <td>Rp2.000.000,00</td>
+              <td>
+                <button class="delete-btn" onclick="confirmDelete(this)">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Banjir Menimpa Sulawesi! Segera berikan bantuan</td>
+              <td>Online</td>
+              <td>Rp545.000,00</td>
+              <td>Rp2.000.000,00</td>
+              <td>
+                <button class="delete-btn" onclick="confirmDelete(this)">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Banjir Menimpa Sulawesi! Segera berikan bantuan</td>
+              <td>Online</td>
+              <td>Rp545.000,00</td>
+              <td>Rp2.000.000,00</td>
+              <td>
+                <button class="delete-btn" onclick="confirmDelete(this)">
+                  <i class="fas fa-trash"></i> Hapus
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 Manajemen Donasi. Semua hak dilindungi.</p>
+    </footer>
+    <script src="Manajemen.js"></script>
+
+    <script>
+      function confirmDelete(button) {
+        const row = button.closest("tr");
+        const donationName = row.querySelector("td:nth-child(2)").innerText;
+        if (
+          confirm(
+            `Apakah Anda yakin ingin menghapus donasi: "${donationName}"?`
+          )
+        ) {
+          row.remove();
+        }
+      }
+    </script>
+  </body>
+</html>
