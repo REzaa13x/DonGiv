@@ -1,15 +1,12 @@
 <?php
 $host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "tubes_webpro"; // database baru yang kamu pilih
+$pengguna = "root";
+$lulus = "";
+$db = "tubes_webpro";
 
-$koneksi = mysqli_connect($host, $user, $pass, $db);
-
-// Tambahkan ini agar $conn juga tersedia
-$conn = $koneksi;
-
-if (!$koneksi) {
-    die("Koneksi gagal: " . mysqli_connect_error());
+$conn = mysqli_connect($host, $pengguna, $lulus, $db);
+if (!$conn) {
+  die("Koneksi gagal: " . mysqli_connect_error());
 }
 ?>
+

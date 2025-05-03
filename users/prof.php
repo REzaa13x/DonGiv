@@ -5,6 +5,8 @@ session_start();
 $id = $_SESSION['user_id'];
 $query = mysqli_query($koneksi, "SELECT * FROM users WHERE id='$id' LIMIT 1");
 $data = mysqli_fetch_assoc($query);
+$foto = $data['foto'] ?? 'default.png';
+
 ?>
 
 
@@ -25,12 +27,12 @@ $data = mysqli_fetch_assoc($query);
     <nav class="bg-blue-600 sticky top-0 z-50 shadow-lg w-screen">
         <div class="flex justify-between items-center px-6 py-4">
             <a href="#" class="flex items-center">
-                <img src="1-removebg-preview (1).png" class="h-12 mr-2" alt="DonGiv-Logo">
+                <img src=" ../foto/1-removebg-preview (1).png" class="h-12 mr-2" alt="DonGiv-Logo">
                 <span class="text-white text-2xl font-semibold">DonGiv</span>
             </a>
     
             <div class="hidden md:flex space-x-6">
-                <a href="http://127.0.0.1:5500/slide.html" class="text-white hover:text-blue-300">Home</a>
+                <a href="DonGiv.php" class="text-white hover:text-blue-300">Home</a>
                 <a href="#Donations" class="text-white hover:text-blue-300">Donations</a>
                 <a href="http://127.0.0.1:5500/Ab.html" class="text-white hover:text-blue-300">About</a>
                 <a href="#Contact" class="text-white hover:text-blue-300">Contact</a>
@@ -38,7 +40,7 @@ $data = mysqli_fetch_assoc($query);
                 <!-- Dropdown -->
                 <div class="relative">
                     <button id="dropdownButton" class="relative focus:outline-none">
-                        <img src="user.png" class="w-8 h-8 rounded-full border-2 border-white">
+                        <img src=" ../foto/user.png" class="w-8 h-8 rounded-full border-2 border-white">
                     </button>
                     <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
                         <div class="px-4 py-2 border-b">
@@ -63,14 +65,17 @@ $data = mysqli_fetch_assoc($query);
   <div class="container">
     <div class="header">
       <div class="user-info">
-        <img src="akun.png" alt="User Avatar">
+      <img src="../uploads/<?= htmlspecialchars($foto) ?>" 
+     alt="Foto Profil" 
+     style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%;">
+
         <div class="details">
           <strong><?php echo $data['name'] ?></strong>
           <div><?=$data['email'] ?></div>
         </div>
       </div>
       <div class="edit-profile">
-        <button onclick="window.location.href='editUser.html'">Edit Profile</button>
+        <button onclick="window.location.href='editUser.php'">Edit Profile</button>
       </div>
     </div>
 
@@ -101,19 +106,19 @@ $data = mysqli_fetch_assoc($query);
     <div class="menu">
       <div class="menu">
         <a href="http://127.0.0.1:5500/History.html" class="menu-item">
-            <img src="transaction.png" alt="Transaksi Saya">
+            <img src=" ../foto/transaction.png" alt="Transaksi Saya">
             <span>Transaksi saya</span>
         </a>
         <a href="donations.html" class="menu-item">
-            <img src="heart.png" alt="Donasi Saya">
+            <img src=" ../foto/heart.png" alt="Donasi Saya">
             <span>Donasi saya</span>
         </a>
         <a href="http://127.0.0.1:5500/donasirutin.html#" class="menu-item">
-            <img src="calendar.png" alt="Donasi Rutin Saya">
+            <img src=" ../foto/calendar.png" alt="Donasi Rutin Saya">
             <span>Donasi rutin saya</span>
         </a>
         <a href="http://127.0.0.1:5500/setting.html" class="menu-item">
-            <img src="settings.png" alt="Settings">
+            <img src=" ../foto/settings.png" alt="Settings">
             <span>Setting</span>
         </a>
     </div>
