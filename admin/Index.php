@@ -250,6 +250,7 @@ Donation            </a>
           <h3 class="text-xl font-bold mb-4">Detail Donasi per Bulan</h3>
           <table class="w-full text-left">
             <thead>
+
               <tr>
                 <th class="py-2">Bulan</th>
                 <th class="py-2">Jumlah Donasi</th>

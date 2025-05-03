@@ -18,7 +18,7 @@
         <div class="icon">
           <i class="fas fa-check-circle"></i>
         </div>
-        <h1>Bukti Pembayaran</h1>
+        <h1>Bukti Pembayaran</h1> 
         <p class="subtitle">Transaksi Berhasil</p>
       </div>
 
