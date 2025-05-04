@@ -12,7 +12,7 @@
           <small>21 November 2024</small>
           <h2>Flash floods in Medan need help</h2>
           <p>Children are raising their voices on the climate crisis. Are we listening?</p>
-          <a href="GU.php">Get the details</a>
+          <a href="../partials/GU.php">Get the details</a>
         </div>
       </div>
       <!-- Card 2 -->
@@ -23,7 +23,7 @@
           <small>21 November 2024</small>
           <h2>Children in Gaza need life-saving support</h2>
           <p>No safe place for children as humanitarian crisis deepens need help</p>
-          <a href="GU2.php">View the appeal</a>
+          <a href="../partials/GU2.php">View the appeal</a>
         </div>
       </div>
       <!-- Card 3 -->
@@ -34,7 +34,7 @@
           <small>21 November 2024</small>
           <h2>Need to protect children conflict in Myanmar</h2>
           <p>There are even those who channel quite a lot of funds for this need</p>
-          <a href="GU3.php">Read now</a>
+          <a href="../partials/GU3.php">Read now</a>
         </div>
       </div>
       <!-- Card 4 -->
@@ -45,7 +45,7 @@
           <small>19 November 2024</small>
           <h2>Lebanon’s Escalating Violence on Children</h2>
           <p>A very amateur case in a city that claimed many victims, especially children</p>
-          <a href="GU4.php">View the appeal</a>
+          <a href="../partials/GU4.php">View the appeal</a>
         </div>
       </div>
     </div>

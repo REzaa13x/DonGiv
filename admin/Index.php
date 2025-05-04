@@ -3,12 +3,12 @@ include '../users/koneksi.php';
 
 // Query total donasi
 $sql_total_donasi = "SELECT SUM(jumlah_uang_masuk) as total_donasi FROM penyaluran_donasi";
-$result_total_donasi =  $conn->query($sql_total_donasi);
+$result_total_donasi = $conn->query($sql_total_donasi);
 $row_total_donasi = mysqli_fetch_assoc($result_total_donasi);
 
 // Query jumlah kampanye
 $sql_kampanye = "SELECT COUNT(nama_donasi) as total_kampanye FROM kampanye_donasi";
-$result_kampanye =  $conn->query($sql_kampanye);
+$result_kampanye = $conn->query($sql_kampanye);
 $row_kampanye = mysqli_fetch_assoc($result_kampanye);
 
 // Query Jumlah donatur

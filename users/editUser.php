@@ -10,7 +10,7 @@ if (!$id) {
 }
 
 // Query user berdasarkan ID
-$query = mysqli_query($koneksi, "SELECT * FROM users WHERE id='$id' LIMIT 1");
+$query = mysqli_query($conn, "SELECT * FROM users WHERE id='$id' LIMIT 1");
 
 // Cek hasil query
 if (!$query || mysqli_num_rows($query) === 0) {

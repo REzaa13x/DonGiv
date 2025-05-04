@@ -3,7 +3,7 @@ session_start();
 include '../users/koneksi.php';
 
 // Tangkap input
-$email = mysqli_real_escape_string($koneksi, $_POST['email']);
+$email = mysqli_real_escape_string($conn, $_POST['email']);
 $password = $_POST['password'];
 
 // Cek apakah email terisi
@@ -13,7 +13,7 @@ if (empty($email) || empty($password)) {
 }
 
 // Cari user berdasarkan email
-$query = mysqli_query($koneksi, "SELECT * FROM users WHERE email='$email' LIMIT 1");
+$query = mysqli_query($conn, "SELECT * FROM users WHERE email='$email' LIMIT 1");
 $data = mysqli_fetch_assoc($query);
 
 // Validasi user dan password
