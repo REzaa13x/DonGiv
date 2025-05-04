@@ -3,7 +3,7 @@ include './koneksi.php';
 session_start();
 
 $id = $_SESSION['user_id'];
-$query = mysqli_query($koneksi, "SELECT * FROM users WHERE id='$id' LIMIT 1");
+$query = mysqli_query($conn, "SELECT * FROM users WHERE id='$id' LIMIT 1");
 $data = mysqli_fetch_assoc($query);
 $foto = $data['foto'] ?? 'default.png';
 

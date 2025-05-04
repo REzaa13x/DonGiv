@@ -28,7 +28,7 @@ if (getimagesize($_FILES["foto"]["tmp_name"]) === false) {
 
 if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
     $query = "UPDATE users SET foto='$filename' WHERE id='$id'";
-    mysqli_query($koneksi, $query);
+    mysqli_query($conn, $query);
     header("Location: ../users/editUser.php");
     exit;
 } else {

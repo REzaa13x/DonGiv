@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $id = $_SESSION['user_id'];
 
     // Hapus foto kalau bukan default.png
-    $result = mysqli_query($koneksi, "SELECT foto FROM users WHERE id='$id'");
+    $result = mysqli_query($conn, "SELECT foto FROM users WHERE id='$id'");
     $user = mysqli_fetch_assoc($result);
     $foto = $user['foto'] ?? 'default.png';
 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     }
 
     // Hapus user dari DB
-    mysqli_query($koneksi, "DELETE FROM users WHERE id='$id'");
+    mysqli_query($conn, "DELETE FROM users WHERE id='$id'");
     
     // Hancurkan session
     session_destroy();

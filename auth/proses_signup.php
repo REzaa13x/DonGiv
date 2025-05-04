@@ -7,14 +7,14 @@ $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 $role = $_POST['role'];
 
 // Cek email sudah ada atau belum
-$cek = mysqli_query($koneksi, "SELECT * FROM users WHERE email='$email'");
+$cek = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");
 if (mysqli_num_rows($cek) > 0) {
     echo "<script>alert('Email sudah terdaftar, silakan login!'); window.location='Login.php';</script>";
     exit();
 }
 
 // Kalau email belum ada, baru insert
-$query = mysqli_query($koneksi, "INSERT INTO users (name, email, password, role) VALUES ('$name', '$email', '$password', '$role')");
+$query = mysqli_query($conn, "INSERT INTO users (name, email, password, role) VALUES ('$name', '$email', '$password', '$role')");
 
 if ($query) {
     echo "<script>alert('Pendaftaran berhasil! Silakan login.'); window.location='Login.php';</script>";
