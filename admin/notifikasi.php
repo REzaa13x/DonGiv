@@ -170,19 +170,21 @@
             </thead>
             <tbody class="text-gray-700">
             <?php
-            include '../users/koneksi.php';
-            $result = $conn->query("SELECT nama_penerima, isi, tanggal_kirim FROM email_kampanye ORDER BY tanggal_kirim DESC");
-            while ($row = $result->fetch_assoc()):
-                $nama_penerima = htmlspecialchars($row['nama_penerima']);
-                $pesan = htmlspecialchars($row['isi']);
-                $jam = date("g:i A", strtotime($row['tanggal_kirim']));
-            ?>
-                <tr class="border-b">
-                    <td class="py-3 px-4"><?php echo $nama_penerima; ?></td>
-                    <td class="py-3 px-4"><?php echo $pesan; ?></td>
-                    <td class="py-3 px-4"><?php echo $jam; ?></td>
-                </tr>
-            <?php endwhile; ?>
+include '../users/koneksi.php';
+
+$result = $conn->query("SELECT nama_penerima, isi, tanggal_kirim FROM email_kampanye ORDER BY tanggal_kirim DESC");
+
+while ($row = $result->fetch_assoc()):
+    $nama_penerima = htmlspecialchars($row['nama_penerima']);
+    $pesan = htmlspecialchars($row['isi']);
+    $jam = date("g:i A", strtotime($row['tanggal_kirim']));
+?>
+
+<!-- Contoh output -->
+<p><strong><?= $nama_penerima ?></strong> - <?= $pesan ?> (<?= $jam ?>)</p>
+
+<?php endwhile; ?>
+
             </tbody>
         </table>
     </div>
