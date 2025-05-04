@@ -92,23 +92,19 @@ function tampilkanRiwayatTransaksi() {
 
 // Fungsi untuk membuat chart
 function buatChart() {
+  const labels = chartData.map(item => item.nama_donasi + " (" + item.tanggal + ")");
+  const dataUangMasuk = chartData.map(item => item.total);
+
   new Chart(mutasiCtx, {
     type: "bar",
     data: {
-      labels: ["September", "October", "November", "December"],
+      labels: labels,
       datasets: [
         {
-          label: "Pendapatan",
-          data: [25000000, 20000000, 15000000, 10000000],
+          label: "Jumlah Uang Masuk",
+          data: dataUangMasuk,
           backgroundColor: "rgba(59, 130, 246, 0.7)",
           borderColor: "rgba(59, 130, 246, 1)",
-          borderWidth: 1,
-        },
-        {
-          label: "Pengeluaran",
-          data: [15000000, 10000000, 20000000, 25000000],
-          backgroundColor: "rgba(220, 38, 38, 0.7)",
-          borderColor: "rgba(220, 38, 38, 1)",
           borderWidth: 1,
         },
       ],

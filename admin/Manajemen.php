@@ -84,7 +84,7 @@ while ($row = $result->fetch_assoc()) {
       </button>
     </div>
 
-    <section class="table-container bg-white p-4 rounded shadow">
+    <section class="table-container">
       <table class="w-full border-collapse">
         <thead>
           <tr class="bg-gray-200">
