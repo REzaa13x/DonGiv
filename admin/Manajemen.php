@@ -6,9 +6,9 @@ session_start();
 $query = "
 SELECT 
   kd.nama_donasi, 
-  pd.penyaluran_donasi, 
-  pd.jumlah_uang_masuk, 
-  pd.target_dana 
+  pd.penanggung_jawab, 
+  pd.total_donasi,
+  kd.target_donasi
 FROM penyaluran_donasi pd
 JOIN kategori_donasi kd ON pd.id_kategori = kd.id_kategori
 ";

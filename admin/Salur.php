@@ -2,8 +2,8 @@
 include '../users/koneksi.php';
 session_start();
 
-$id = $_SESSION['user_id'];
-$query = mysqli_query($koneksi, "SELECT pd.*, kd.nama_kategori
+// $id = $_SESSION['user_id'];
+$query = mysqli_query($conn, "SELECT pd.*, kd.nama_donasi
 FROM penyaluran_donasi pd
 JOIN kategori_donasi kd ON pd.id_donasi = kd.id_kategori");
 $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
@@ -146,7 +146,7 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
           <tr>
             <td><?= $donasi['tanggal'] ?></td>
             <td><?= $donasi['penanggung_jawab'] ?></td>
-            <td><?= $donasi['nama_kategori'] ?></td>
+            <td><?= $donasi['nama_donasi'] ?></td>
             <td>Rp. <?= number_format($donasi['total_donasi'], 0, ',', '.') ?>
             </td>
             <td class="bukti-icon">
