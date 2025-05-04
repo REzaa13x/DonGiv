@@ -102,6 +102,20 @@
     </header>
 
     <main class="main-content">
+    <?php if (isset($_GET['status']) && $_GET['status'] === 'berhasil'): ?>
+  <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4 max-w-xl mx-auto">
+    <strong class="font-bold">Berhasil!</strong>
+    <span class="block sm:inline">Email berhasil dikirim ke <?= htmlspecialchars($_POST['recipients'] ?? 'donatur') ?>.</span>
+    <span onclick="this.parentElement.style.display='none';" class="absolute top-0 bottom-0 right-0 px-4 py-3 cursor-pointer">
+      <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 20 20">
+        <title>Close</title>
+        <path d="M14.348 5.652a1 1 0 10-1.414-1.414L10 7.586 7.066 4.652A1 1 0 105.652 6.066L8.586 9l-2.934 2.934a1 1 0 101.414 1.414L10 10.414l2.934 2.934a1 1 0 001.414-1.414L11.414 9l2.934-2.934z"/>
+      </svg>
+    </span>
+  </div>
+<?php endif; ?>
+
       <section class="notification-section">
         <h2>Daftar Notifikasi</h2>
         <ul class="notification-list">
@@ -131,7 +145,7 @@
         </ul>
 
         <!-- Tambahkan di bawah bagian notifikasi -->
-        <form class="email-form">
+        <form class="email-form" action="send_email.php" method="POST">
           <label for="email-subject">Subjek Email</label>
           <input
             type="text"
@@ -159,80 +173,42 @@
       </section>
 
       <!-- Kontak Pesan -->
-      <section class="message-section">
-        <h2>Kotak Pesan</h2>
-        <div class="message">
-          <div class="avatar" style="background: #2563eb">DN</div>
-          <div class="message-content">
-            <div class="name">Donatur</div>
-            <div class="text">
-              Terimakasih telah memberikan sebagian harta anda!
-            </div>
-          </div>
-          <div class="message-time">3:59 PM</div>
-        </div>
+      <!-- Kotak Pesan sebagai Tabel -->
+<section class="message-section">
+  <h2 class="text-xl font-bold mb-4">Kotak Pesan</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+      <thead class="bg-blue-600 text-white">
+        <tr>
+          <th class="py-3 px-4 text-left">Avatar</th>
+          <th class="py-3 px-4 text-left">Nama</th>
+          <th class="py-3 px-4 text-left">Pesan</th>
+          <th class="py-3 px-4 text-left">Waktu</th>
+        </tr>
+      </thead>
+      <tbody class="text-gray-700">
+  <?php
+  include '../users/koneksi.php';
+  $result = $conn->query("SELECT * FROM email_kampanye ORDER BY tanggal_kirim DESC");
+  while ($row = $result->fetch_assoc()):
+    $nama = $row['penerima'];
+    $words = explode(' ', $nama);
+    $inisial = strtoupper(substr($words[0], 0, 1) . substr($words[1] ?? '', 0, 1));
+    $jam = date("g:i A", strtotime($row['tanggal_kirim']));
+    $warna = substr(md5($inisial), 0, 6);
+  ?>
+    <tr class="border-b">
+      <td class="py-3 px-4 font-bold" style="color:#<?php echo $warna; ?>"><?php echo $inisial; ?></td>
+      <td class="py-3 px-4"><?php echo htmlspecialchars($nama); ?></td>
+      <td class="py-3 px-4"><?php echo htmlspecialchars($row['isi']); ?></td>
+      <td class="py-3 px-4"><?php echo $jam; ?></td>
+    </tr>
+  <?php endwhile; ?>
+</tbody>
+    </table>
+  </div>
+</section>
 
-        <div class="message">
-          <div class="avatar" style="background: #ff4081">MA</div>
-          <div class="message-content">
-            <div class="name">Maryam Amiri</div>
-            <div class="text">Berikan bantuan untuk kesehatan adik Putra</div>
-          </div>
-          <div class="message-time">3:45 PM</div>
-        </div>
-
-        <div class="message">
-          <div class="avatar" style="background: #43a047">AI</div>
-          <div class="message-content">
-            <div class="name">Ali Imran</div>
-            <div class="text">Sudah ada donasi baru yang telah diupdate!</div>
-          </div>
-          <div class="message-time">3:38 PM</div>
-        </div>
-
-        <div class="message">
-          <div class="avatar" style="background: #fb8c00">SH</div>
-          <div class="message-content">
-            <div class="name">Soleh Suhan</div>
-            <div class="text">
-              Terimakasih sudah meluangkan waktu anda untuk berdonasi di DonGiv!
-            </div>
-          </div>
-          <div class="message-time">2:55 PM</div>
-        </div>
-
-        <div class="message">
-          <div class="avatar" style="background: #fb8c00">SH</div>
-          <div class="message-content">
-            <div class="name">Soleh Suhan</div>
-            <div class="text">
-              Terimakasih sudah meluangkan waktu anda untuk berdonasi di DonGiv!
-            </div>
-          </div>
-          <div class="message-time">2:55 PM</div>
-        </div>
-        
-        <div class="message">
-          <div class="avatar" style="background: #43a047">AI</div>
-          <div class="message-content">
-            <div class="name">Ali Imran</div>
-            <div class="text">Sudah ada donasi baru yang telah diupdate!</div>
-          </div>
-          <div class="message-time">3:38 PM</div>
-        </div>
-
-        <div class="message">
-          <div class="avatar" style="background: #3f51b5">AM</div>
-          <div class="message-content">
-            <div class="name">Alice Morgan</div>
-            <div class="text">
-              Berikan bantuan mu untuk donasi pada hari ini!
-            </div>
-          </div>
-          <div class="message-time">1:45 PM</div>
-        </div>
-      </section>
-    </main>
     <script>
       // Fungsi untuk toggle submenu
       function toggleSubmenu(submenuId, event) {

@@ -30,7 +30,7 @@ body {
 }
 
 .sidebar a {
-  color: white; /* Warna teks putih */
+  color: #2563eb; /* Warna teks putih */
   padding: 10px 15px; /* Padding untuk item */
   margin: 5px 0; /* Margin antar item */
   border-radius: 5px; /* Sudut yang lebih lembut */
