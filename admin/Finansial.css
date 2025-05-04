@@ -31,8 +31,8 @@ body {
 .sidebar {
   background: linear-gradient(
     to bottom,
-    #2563eb,
-    #2563eb
+    #1E3A8A,
+    #1E3A8A
   ); /* Gradasi dari biru tua ke biru muda */
   color: white; /* Warna teks putih agar kontras */
   width: 250px; /* Lebar sidebar */
@@ -138,8 +138,8 @@ body {
   margin-top: 0;
   background: linear-gradient(
     to bottom,
-    #2563eb,
-    #2563eb
+    #1E3A8A,
+    #1E3A8A
   ); /* Gradasi dari biru tua ke biru muda */
   /* Gradasi dari biru ke biru muda */
   padding: 20px;

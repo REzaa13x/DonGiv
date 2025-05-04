@@ -60,7 +60,7 @@ $result_detail_donasi = $conn->query($sql_detail_donasi);
     }
 
     .sidebar {
-      background-color: #2563eb;
+      background-color: #1E3A8A;
       color: white;
       width: 250px;
       height: 100vh;

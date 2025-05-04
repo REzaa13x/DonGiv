@@ -27,7 +27,7 @@ body {
 }
 
 .sidebar {
-  background-color: #2563eb;
+  background-color: #1E3A8A;
   color: white; 
   width: 250px; /* Lebar sidebar */
   height: 100vh; /* Tinggi sidebar sesuai viewport */
@@ -130,7 +130,7 @@ body {
 
 /* Header Styles */
 .header {
-  background-color: #2563eb;
+  background-color: #1E3A8A;
   padding: 20px;
   border-bottom: 0.5px solid #ccc;
   border-radius: 15px;
