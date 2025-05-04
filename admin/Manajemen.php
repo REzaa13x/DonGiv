@@ -87,18 +87,19 @@ if ($result && mysqli_num_rows($result) > 0) {
     </button>
   </div>
 
-  <section class="table-container overflow-x-auto">
-    <table class="min-w-full table-auto border-collapse">
-      <thead>
-        <tr class="bg-gray-200 text-left">
-          <th class="border px-4 py-2">No</th>
-          <th class="border px-4 py-2">Program Donasi</th>
-          <th class="border px-4 py-2">Target Donasi</th>
-          <th class="border px-4 py-2">Tujuan Penerima Donasi</th>
-          <th class="border px-4 py-2">Kategori Donasi</th>
-          <th class="border px-4 py-2 text-center">Action</th>
-        </tr>
-      </thead>
+  <section class="table-container flex justify-center">
+  <table class="min-w-fit border-collapse mx-auto text-sm">
+  <table class="table-fixed border-collapse mx-auto text-sm">
+  <thead>
+    <tr class="bg-gray-200 text-left">
+      <th class="border px-4 py-2 w-12">No</th>
+      <th class="border px-4 py-2 w-64">Program Donasi</th>
+      <th class="border px-4 py-2 w-48">Target Donasi</th>
+      <th class="border px-4 py-2 w-64">Tujuan Penerima Donasi</th>
+      <th class="border px-4 py-2 w-40">Kategori Donasi</th>
+      <th class="border px-4 py-2 text-center w-32">Action</th>
+    </tr>
+  </thead>
       <tbody>
         <?php $no = 1; foreach ($donasi as $row): ?>
           <tr class="hover:bg-gray-100">
