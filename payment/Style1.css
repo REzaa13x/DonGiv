@@ -1,0 +1,312 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: poppins;
+    line-height: 1.6;
+    background-color: #ffffff;
+    background: url('book-1822474_960_720.jpg') no-repeat center center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+ /* nav */
+ nav {
+    background-color: #2563eb;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .nav-logo img {
+    height: 3rem;
+    margin-right: 0.5rem;
+  }
+  .nav-logo span {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .nav-links a:hover {
+    color: #93c5fd;
+  }
+  .dropdown {
+    position: relative;
+  }
+  .dropdown img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+  }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    margin-top: 0.5rem;
+    width: 12rem;
+    background-color: #1e293b;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 0.75rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  .dropdown-menu a:hover {
+    background-color: #2563eb;
+  }
+  .dropdown-menu div {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .dropdown-menu p {
+    margin: 0;
+    color: white;
+  }
+  .dropdown-menu .text-sm {
+    color: rgba(255, 255, 255, 0.7);
+  }
+   /* nav */
+.header {
+    background-color: #00a1e0;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 6px;
+    position: fixed;
+    z-index: 1000;
+    width: 800%;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    height: 60px;
+    margin-right: 10px;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 80px;
+    width: 100%;
+    max-width: 150%;
+    justify-content: center;
+}
+
+.image-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 20px;
+}
+
+
+.image-section img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 10px;
+  
+}
+.text-section {
+  max-width: 50%; /* Batasi lebar teks */
+  display: flex; /* Flexbox untuk teks */
+  flex-direction: column; /* Susun teks dalam kolom (vertikal) */
+  text-align: left; /* Rata kiri teks */
+  font-size: 20px;
+}
+
+.text-section h2 {
+    margin: 0;
+    font-size: 50px;
+    color: #2563eb;
+}
+
+.text-section .p {
+    margin: 10px 0 0;
+    font-size: 30px !important;
+    font-style: italic;
+    color: #1b292e;
+}
+
+.donation-section {
+    flex: 1 1 40%;
+    background-color: rgb(241, 236, 236);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    justify-content: center;
+}
+
+.donation-section h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.benefits {
+  text-align: center;
+}
+.benefits .bracelet {
+    display: block;
+    margin: 10px auto;
+    width: 300%;
+    max-width: 500px;
+}
+
+.donation-options button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #0f45a2;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.donation-options button:hover {
+    background-color: #007bb5;
+}
+
+.custom-donation input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.paymentMethod {
+  display: flex; /* Mengatur elemen di dalam paymentMethod agar sejajar horizontal */
+  align-items: center; /* Menyelaraskan elemen secara vertikal */
+  justify-content: space-between; /* Menempatkan label di kiri, tombol di kanan */
+  width: 100%; /* Pastikan elemen menggunakan lebar penuh container */
+  margin: 0; /* Menghapus margin bawaan */
+  padding: 0; /* Menghapus padding bawaan */
+}
+.paymentMethod label {
+  flex: 1; /* Memberikan ruang maksimum ke label di sisi kiri */
+  margin: 0; /* Menghapus margin bawaan */
+  font-size: inherit; /* Konsisten dengan ukuran font */
+}
+.paymentMethod .button {
+  border: none; /* Menghilangkan border tombol */
+  background: none; /* Menghapus warna latar belakang */
+  padding: 0; /* Menghapus padding default */
+  margin: 0; /* Menghapus margin default */
+  cursor: pointer; /* Mengubah kursor menjadi pointer */
+}
+
+.paymentMethod .dropbtn {
+  text-decoration: none; /* Menghilangkan garis bawah teks tautan */
+  color: inherit;
+  font-size: inherit; /* Ukuran font tetap konsisten */
+  margin: 0; /* Menghapus margin default */
+}
+/* Tombol Dropdown */
+.customdropdown {
+  display: flex; /* Mengatur elemen dalam dropdown agar sejajar secara horizontal */
+  align-items: center; /* Menyelaraskan elemen secara vertikal */
+}
+.custom-dropdown .button {
+  border: none; /* Menghilangkan border tombol */
+  background: none; /* Menghilangkan warna latar belakang tombol */
+  padding: 0; /* Menghilangkan padding default tombol */
+  cursor: pointer; /* Mengubah kursor menjadi pointer saat dihover */
+  color: #00a1e0;
+}
+
+.custom-dropdown .dropbtn {
+  text-decoration: none; /* Menghilangkan garis bawah pada teks link */
+  color: inherit; /* Memastikan warna teks sesuai dengan desain */
+  font-size: inherit; /* Menggunakan ukuran font yang konsisten */
+  margin: 0;
+}
+
+
+.donate-now {
+    background-color: rgb(29, 54, 156);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.donate-now:hover {
+    background-color: rgb(79, 107, 147);
+}
+
+.note {
+    margin-top: 10px;
+    font-size: 12px;
+    color: gray;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #00a1e0;
+    color: white;
+    margin-top: 20px;
+    font-size: 0.9em;
+}

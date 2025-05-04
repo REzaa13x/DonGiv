@@ -1,0 +1,64 @@
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  color: #333;
+}
+
+.container {
+  width: 720px; /* Perbesar container */
+  margin-top: 40px; /* Naikkan jarak dari atas */
+  background-color: #fff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.header {
+  padding: 30px;
+  font-size: 24px; /* Perbesar font */
+  font-weight: bold;
+  color: #fff;
+  background-color: rgb(0, 140, 255);
+  text-align: center;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+.menu a {
+  text-decoration: none; /* Menghilangkan garis bawah */
+  color: inherit; /* Memastikan warna teks mengikuti tema */
+}
+
+.menu a:hover {
+  color: #007bff; /* Warna teks saat hover (opsional) */
+}
+.menu-item {
+  padding: 20px 30px; /* Perbesar padding */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.menu-item:hover {
+  background-color: #f7f7f7;
+  transform: translateX(12px);
+}
+.menu-item:active {
+  transform: translateX(8px);
+}
+.icon {
+  width: 32px; /* Perbesar ikon */
+  height: 32px;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+}
+.menu-item span {
+  font-size: 18px; /* Perbesar teks menu */
+  color: #555;
+}

@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(biru-pastel.jpg);
+    background: url(' ../foto/biru-pastel.jpg');
 }
 
 .main-container {
