@@ -135,11 +135,11 @@ body {
   flex-direction: column;
 }
 
-.header .company-info h1 {
+.header h1 {
   margin: 10px;
-  font-size: 1.5rem;
+  font-size: 30px;
   font-weight: bold;
-  color: #f0f0f0;
+  color: white;
 }
 
 .header .company-info p {
