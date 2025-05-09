@@ -22,19 +22,19 @@
 
  <nav>
     <div class="nav-container">
-      <a href="#" class="nav-logo">
+      <a href="../users/DonGiv.php" class="nav-logo">
         <img src="../foto/1-removebg-preview (1).png" alt="DonGiv-Logo">
         <span>DonGiv</span>
       </a>
   
       <div class="nav-links">
-        <a href="#">Home</a>
+        <a href="../users/DonGiv.php">Home</a>
         <a href="#Donations">Donations</a>
         <a href="#About">About</a>
         <a href="#Contact">Contact</a>
   
         <div class="dropdown">
-          <img src="user.png" alt="User" id="dropdown-btn">
+          <img src="../foto/user.png" alt="User" id="dropdown-btn">
           <div class="dropdown-menu">
             <div>
               <p class="font-semibold">Username</p>
@@ -56,7 +56,7 @@
     <div class="hero-content">
       <h1>Children in Gaza need life-saving support</h1>
       <p>Anak-anak menyuarakan krisis iklim. Apakah kita mendengarkan?</p>
-      <a href="http://127.0.0.1:5500/Payment.html" class="cta">Donasi Sekarang</a>
+      <a href="../payment/payment.php" class="cta">Donasi Sekarang</a>
     </div>
   </section>
 

@@ -6,7 +6,8 @@ $id = $_SESSION['user_id'];
 $query = mysqli_query($conn, "SELECT * FROM users WHERE id='$id' LIMIT 1");
 $data = mysqli_fetch_assoc($query);
 $foto = $data['foto'] ?? 'default.png';
-
+// Ambil saldo dari tabel users
+$saldo = $data['saldo'] ?? 0; // Amankan jika saldo belum ada
 ?>
 
 
@@ -95,8 +96,8 @@ $foto = $data['foto'] ?? 'default.png';
     </div>
 
     <div class="wallet">
-      <span>Saldo Kantong Amal: Rp 0</span>
-      <button>+ Top Up</button>
+      <span>Saldo Kantong Amal: Rp <?php echo number_format($saldo); ?></span>
+      <button onclick="window.location.href='../topup/topup.php'">+ Top Up</button>
     </div>
 
     <div class="notice">

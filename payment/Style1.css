@@ -8,7 +8,7 @@ body {
     font-family: poppins;
     line-height: 1.6;
     background-color: #ffffff;
-    background: url('book-1822474_960_720.jpg') no-repeat center center;
+    background: url('../foto/home1.jpg') no-repeat center center;
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.5);
 }

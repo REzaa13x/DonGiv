@@ -1,0 +1,54 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    background: url(' ../foto/biru-pastel.jpg');
+  }
+
+.transaction-receipt {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: sans-serif;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+     background-color: #f0f0f0;
+}
+
+.transaction-receipt h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #325ded;
+}
+
+.transaction-receipt p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.transaction-receipt .detail-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.transaction-receipt a {
+    color: #fcfcfc;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4a77f2;
+    border-radius: 5px;
+}
+
+.transaction-receipt a:hover {
+    text-decoration: underline;
+}

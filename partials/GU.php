@@ -21,13 +21,13 @@
   <body class="overflow-x-hidden">
     <nav class="bg-blue-600 sticky top-0 z-50 shadow-lg w-screen">
       <div class="flex justify-between items-center px-6 py-4">
-          <a href="#" class="flex items-center">
+          <a href="../users/DonGiv.php" class="flex items-center">
               <img src="../foto/1-removebg-preview (1).png" class="h-12 mr-2" alt="DonGiv-Logo">
               <span class="text-white text-2xl font-semibold">DonGiv</span>
           </a>
   
           <div class="hidden md:flex space-x-6">
-              <a href="http://127.0.0.1:5500/slide.html#" class="text-white hover:text-blue-300">Home</a>
+              <a href="../users/DonGiv.php" class="text-white hover:text-blue-300">Home</a>
               <a href="#Donations" class="text-white hover:text-blue-300">Donations</a>
               <a href="http://127.0.0.1:5500/Ab.html" class="text-white hover:text-blue-300">About</a>
               <a href="#Contact" class="text-white hover:text-blue-300">Contact</a>
@@ -35,7 +35,7 @@
               <!-- Dropdown -->
               <div class="relative">
                   <button id="dropdownButton" class="relative focus:outline-none">
-                      <img src="user.png" class="w-8 h-8 rounded-full border-2 border-white">
+                      <img src="../foto/user.png" class="w-8 h-8 rounded-full border-2 border-white">
                   </button>
                   <div id="dropdownMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
                       <div class="px-4 py-2 border-b">
@@ -64,7 +64,7 @@
     <div class="hero-content">
       <h1>Banjir Bandang di Medan Membutuhkan Bantuan Anda</h1>
       <p>Anak-anak menyuarakan krisis iklim. Apakah kita mendengarkan?</p>
-      <a href="http://127.0.0.1:5500/Payment.html#logout" class="cta">Donasi Sekarang</a>
+      <a href="../payment/payment.php" class="cta">Donasi Sekarang</a>
     </div>
   </section>
 
