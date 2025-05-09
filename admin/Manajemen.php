@@ -74,6 +74,14 @@ if ($result && mysqli_num_rows($result) > 0) {
     </header>
 
 <!-- Main Content -->
+<?php if (isset($_GET['status']) && isset($_GET['msg'])): ?>
+  <script>
+    window.onload = function() {
+      alert("<?= htmlspecialchars($_GET['msg']) ?>");
+    };
+  </script>
+<?php endif; ?>
+
 <main class="content ml-64 px-6 py-4 max-w-screen-xl mx-auto">
   <div class="flex justify-between items-center mb-6">
     <form method="GET" class="search-bar flex items-center border px-3 py-2 rounded w-full max-w-md">
@@ -109,11 +117,21 @@ if ($result && mysqli_num_rows($result) > 0) {
             <td class="border px-4 py-2"><?= htmlspecialchars($row['tujuan_penerima_donasi']) ?></td>
             <td class="border px-4 py-2"><?= htmlspecialchars($row['kategori']) ?></td>
             <td class="border px-4 py-2 text-center space-x-2">
-             
-              <button class="text-red-600 hover:text-red-800" onclick="confirmDelete(this)">
-                <i class="fas fa-trash"></i> Hapus
-              </button>
-            </td>
+            <?php
+  $id = $row['id_donasi'];
+  $judul = htmlspecialchars($row['judul'], ENT_QUOTES);
+  $link = "Hapus.php?id=$id";
+  $pesan = "Apakah Anda yakin ingin menghapus donasi: $judul?";
+?>
+<a href="<?= $link ?>" 
+   onclick="return confirm('<?= $pesan ?>')" 
+   class="text-red-600 hover:text-red-800">
+   <i class="fas fa-trash"></i> Hapus
+</a>
+
+</td>
+
+
           </tr>
         <?php endforeach; ?>
       </tbody>
@@ -133,6 +151,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     const donationName = row.querySelector("td:nth-child(2)").innerText;
     if (confirm(`Apakah Anda yakin ingin menghapus donasi: "${donationName}"?`)) {
       row.remove();
+	  
     }
   }
 </script>

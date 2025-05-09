@@ -1,4 +1,3 @@
-<!-- tampilkan tabel lebih dulu -->
 <table>
   <thead>
     <tr>
@@ -27,10 +26,9 @@
   </tbody>
 </table>
 
-<!-- (Opsional) tampilkan daftar pesan biasa di bawah -->
+<!-- tampilkan daftar pesan biasa di bawah -->
 <div>
   <?php
-  // Jalankan ulang query kalau perlu tampilkan daftar
   $result = $conn->query("SELECT subjek, isi, penerima, tanggal_kirim FROM email_kampanye ORDER BY tanggal_kirim DESC");
   while ($row = $result->fetch_assoc()):
     $jam = date("g:i A", strtotime($row['tanggal_kirim']));
