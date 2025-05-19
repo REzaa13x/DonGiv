@@ -59,8 +59,8 @@ if ($result && mysqli_num_rows($result) > 0) {
     <a href="Salur.php" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
       <i class="fas fa-share-alt mr-2"></i> Channel
     </a>
-    <a href="Finansial.php" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
-      <i class="fas fa-wallet mr-2"></i> Finance
+    <a href="User Manajement.php" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
+      <i class="fas fa-wallet mr-2"></i> Manajement User
     </a>
     <a href="#" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center" onclick="openLogoutModal()">
       <i class="fas fa-sign-out-alt mr-2"></i> Log Out

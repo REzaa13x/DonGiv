@@ -60,10 +60,10 @@
             </a>
 
             <a
-                href="Finansial.php"
+                href="User Manajement.php"
                 class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center"
             >
-                <i class="fas fa-wallet mr-2"></i> Finance
+                <i class="fas fa-wallet mr-2"></i> Manajement User
             </a>
 
             <a

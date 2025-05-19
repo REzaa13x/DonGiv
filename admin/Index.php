@@ -200,9 +200,9 @@ $result_detail_donasi = $conn->query($sql_detail_donasi);
         <i class="fas fa-share-alt mr-2"></i> Channel
       </a>
       <a
-        href="Finansial.php"
+        href="User Manajement.php"
         class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
-        <i class="fas fa-wallet mr-2"></i> Finance
+        <i class="fas fa-wallet mr-2"></i> Manajement User
         <a
           href="#"
           class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center"
@@ -366,55 +366,6 @@ $result_detail_donasi = $conn->query($sql_detail_donasi);
         });
       });
     </script>
-    <div class="bg-white p-6 rounded-md shadow-md mt-6">
-      <h3 class="text-xl font-bold mb-4">Testimoni Donatur</h3>
-      <div class="space-y-4">
-        <div class="bg-gray-100 p-4 rounded-md">
-          <p class="text-gray-700">
-            "Sangat senang bisa berdonasi melalui DonGiv. Prosesnya mudah
-            dan transparan!"
-          </p>
-          <p class="text-sm text-gray-500 mt-2">- Donatur A</p>
-        </div>
-        <div class="bg-gray-100 p-4 rounded-md">
-          <p class="text-gray-700">
-            "Saya merasa bangga bisa berkontribusi untuk kampanye ini."
-          </p>
-          <p class="text-sm text-gray-500 mt-2">- Donatur B</p>
-        </div>
-      </div>
-    </div>
-    <div class="bg-white p-6 rounded-md shadow-md mt-6">
-      <h3 class="text-xl font-bold mb-4">Kampanye Terbaru</h3>
-      <div class="space-y-4">
-        <div class="bg-gray-100 p-4 rounded-md">
-          <h4 class="font-bold">Kampanye Pendidikan</h4>
-          <p class="text-gray-700">
-            Bantu anak-anak kurang mampu mendapatkan pendidikan yang layak.
-          </p>
-          <p class="text-sm text-gray-500 mt-2">Target: Rp 5.000.000</p>
-        </div>
-        <div class="bg-gray-100 p-4 rounded-md">
-          <h4 class="font-bold">Kampanye Kesehatan</h4>
-          <p class="text-gray-700">
-            Dukung program kesehatan untuk masyarakat kurang mampu.
-          </p>
-          <p class="text-sm text-gray-500 mt-2">Target: Rp 3.000.000</p>
-        </div>
-      </div>
-    </div>
-    <div class="bg-white p-6 rounded-md shadow-md mt-6">
-      <h3 class="text-xl font-bold mb-4">Aksi Cepat</h3>
-      <div class="flex space-x-4">
-        <button class="bg-blue-500 text-white px-4 py-2 rounded-md">
-          Buat Kampanye Baru
-        </button>
-        <button class="bg-green-500 text-white px-4 py-2 rounded-md">
-          Lihat Laporan Donasi
-        </button>
-      </div>
-    </div>
-  </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

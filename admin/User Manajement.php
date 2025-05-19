@@ -1,51 +1,12 @@
 <?php
 include '../users/koneksi.php';
-session_start();
 
-if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
-  $keyword = $_GET['keyword'] ?? '';
-  $keyword = mysqli_real_escape_string($conn, $keyword); 
+ $query = mysqli_query($conn, "SELECT name, email, role
+    FROM users");
+   
+   $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
-  $query = mysqli_query($conn, "SELECT pd.*, kd.nama_donasi
-    FROM penyaluran_donasi pd
-    JOIN kategori_donasi kd ON pd.id_donasi = kd.id_kategori
-    WHERE pd.penanggung_jawab LIKE '%$keyword%'");
-
-  $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-  if (!empty($data)) {
-    foreach ($data as $donasi) {
-      echo "<tr>
-        <td>{$donasi['tanggal']}</td>
-        <td>{$donasi['penanggung_jawab']}</td>
-        <td>{$donasi['nama_donasi']}</td>
-        <td>Rp. " . number_format($donasi['total_donasi'], 0, ',', '.') . "</td>
-        <td class='bukti-icon'>
-          <a href='bukti.php'><i class='fas fa-file-alt'></i></a>
-        </td>
-        <td>
-          <a href='DetailDonasi.php'>
-            <button class='btn-detail'><i class='fas fa-info-circle'></i> Detail</button>
-          </a>
-        </td>
-      </tr>";
-    }
-  } else {
-    echo "<tr><td colspan='6' class='text-center text-gray-500'>Data tidak ditemukan.</td></tr>";
-  }
-  exit;
-}
-
-// Query default untuk tampilan awal 
-$query = mysqli_query($conn, "SELECT pd.*, kd.nama_donasi
-  FROM penyaluran_donasi pd
-  JOIN kategori_donasi kd ON pd.id_donasi = kd.id_kategori");
-
-$data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="id">
 
@@ -137,8 +98,8 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
   <div class="container">
     <!-- Header -->
     <header class="header">
-      <h1>Salurkan Donasi</h1>
-      <p>Mari salurkan donasi Anda untuk membantu mereka yang membutuhkan.</p>
+      <h1>Manajemen User</h1>
+      <p>Kelola data pengguna yang terdaftar dalam sistem DonGiv.</p>
     </header>
 
     <!-- Search Bar -->
@@ -147,57 +108,37 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
       <button id="search-btn"><i class="fas fa-search"></i> Cari</button>
     </div>
 
-    <!-- Filter Options -->
-    <div class="filters">
-      <label for="filter-date">Filter Tanggal:</label>
-      <input type="date" id="filter-date" />
-      <label for="filter-amount">Filter Jumlah:</label>
-      <select id="filter-amount">
-        <option value="all">Semua</option>
-        <option value="small">Kecil (Rp 0 - Rp 1.000.000)</option>
-        <option value="medium">Sedang (Rp 1.000.000 - Rp 5.000.000)</option>
-        <option value="large">Besar (Rp 5.000.000+)</option>
-      </select>
-    </div>
-
-    <!-- Donation Table -->
-    <!-- HTML -->
-    <table>
-      <thead>
-        <tr>
-          <th>Tanggal</th>
-          <th>Penanggung Jawab</th>
-          <th>Nama Donasi</th>
-          <th>Total</th>
-          <th>Bukti</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-      <tbody id="donasi-tbody">
-        <?php foreach ($data ?? [] as $donasi): ?>
+   <!-- Table User -->
+    <div class="overflow-x-auto bg-white rounded shadow">
+      <table class="min-w-full table-auto text-sm text-left">
+        <thead class="bg-blue-600 text-black">
           <tr>
-            <td><?= $donasi['tanggal'] ?></td>
-            <td><?= $donasi['penanggung_jawab'] ?></td>
-            <td><?= $donasi['nama_donasi'] ?></td>
-            <td>Rp. <?= number_format($donasi['total_donasi'], 0, ',', '.') ?>
-            </td>
-            <td class="bukti-icon">
-              <a href="bukti.php">
-                <i class="fas fa-file-alt"></i>
-              </a>
-            </td>
-            <td>
-              <a href="DetailDonasi.php">
-                <button class="btn-detail">
-                  <i class="fas fa-info-circle"></i> Detail
-                </button>
-              </a>
-            </td>
+            <th class="px-4 py-3">Nama</th>
+            <th class="px-4 py-3">Email</th>
+            <th class="px-4 py-3">Password</th>
+            <th class="px-4 py-3">Role</th>
+            <th class="px-4 py-3">Action</th>
           </tr>
-        <?php endforeach; ?>
-        <!-- Tambahkan baris lainnya di sini -->
-      </tbody>
-    </table>
+        </thead>
+        <tbody id="user-tbody">
+           <?php foreach ($data ?? [] as $user): ?>
+         <tr class="border-b">
+  <td class="px-4 py-2"><?= $user['name'] ?></td>
+  <td class="px-4 py-2"><?= $user['email'] ?></td>
+  <td class="px-4 py-2">••••••••</td>
+  <td class="px-4 py-2"><?= $user['role'] ?></td>
+  <td class="px-4 py-2 flex gap-2">
+    <a href="DeleteUser.php?id=1"
+      class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+      onclick="return confirm('Hapus user ini?')">
+      <i class="fas fa-trash-alt"></i> Hapus
+    </a>
+  </td>
+</tr>
+ <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -218,6 +159,8 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
       };
       xhr.send();
     });
+
+    console.log(<?php echo json_encode($data);?>);
   </script>
 
 </body>
