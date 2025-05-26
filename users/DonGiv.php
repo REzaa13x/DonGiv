@@ -83,6 +83,7 @@ $email = $_SESSION['email'] ?? 'name@gmail.com';
   <!-- Main Content -->
   <?php include '../partials/hero.php'; ?>
   <?php include '../partials/donations.php'; ?>
+  <?php include '../Relawan/Pagerelawan.php'; ?>
   <?php include '../partials/review.php'; ?>
   <?php include '../partials/about.php'; ?>
   <?php include '../partials/contact.php'; ?>
