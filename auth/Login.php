@@ -63,13 +63,7 @@ include '../users/koneksi.php';
         <input type="password" name="password" id="signup-password" placeholder="Create a password" required>
         <button type="button" class="toggle-password">Show</button>
     </div>
-
-    <!-- 🔽 Tambahan Field Role -->
-    <label for="role">Role</label>
-    <select name="role" id="role" required>
-        <option value="donatur">Donatur</option>
-        <option value="admin">Admin</option>
-    </select>
+    
 
     <button type="submit" class="submit-btn">Sign Up</button>
 </form>

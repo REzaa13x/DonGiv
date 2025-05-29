@@ -1,0 +1,217 @@
+/* Reset beberapa gaya default */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* Menambahkan font Poppins */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    background: url(' ../foto/biru-pastel.jpg');
+}
+
+/* Container utama untuk nota */
+.nota-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+/* Menambahkan logo di bagian atas */
+.nota-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.nota-header img {
+    width: 120px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #2052dd;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Styling untuk informasi transaksi */
+.nota-info {
+    margin-bottom: 20px;
+}
+
+.nota-info p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.nota-info strong {
+    font-weight: 600;
+    color: #1467c5;
+}
+
+.nota-details {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+}
+
+.nota-details p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.nota-details .item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.nota-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Styling untuk tombol atau aksi lainnya */
+button.donate-now {
+    width: 100%;
+    padding: 12px;
+    background-color: #1c42cc;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button.donate-now:hover {
+    background-color: #1f4ecf;
+}
+
+/* Responsif */
+@media screen and (max-width: 600px) {
+    .nota-container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+/* Menambahkan gaya untuk tombol kembali */
+.nota-back {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #0d38a3;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #cbd9ea;
+    color: #2e2e2e;
+}
+.nota-details {
+    padding: 15px 0;
+    border-radius: 0;
+    margin-top: 20px;
+    background-color: transparent;
+    border: none;
+}
+
+.nota-upload {
+    margin-top: 30px;
+}
+
+.nota-upload label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.upload-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.upload-row input[type="file"] {
+    flex: 1;
+    max-width: 60%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.upload-row button {
+    background-color: #3b1ede;
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.upload-row button:hover {
+    background-color: #09c5fe;
+}
+
+.nota-back {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #0d2ba3;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #09c5fe;
+    color: #2e2e2e;
+}
+
+.nota-footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #777;
+}

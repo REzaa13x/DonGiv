@@ -4,7 +4,7 @@ include '../users/koneksi.php'; // naik satu folder (karena di dalam /auth/)
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-$role = $_POST['role'];
+$role = 'donatur';
 
 // Cek email sudah ada atau belum
 $cek = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'");

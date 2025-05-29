@@ -1,40 +1,16 @@
 <?php
-// Aktifkan error reporting untuk debugging
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-include 'koneksi.php'; // Koneksi ke database
 session_start();
+include '../users/koneksi.php';
 
 // Cek apakah pengguna sudah login
 if (!isset($_SESSION['user_id'])) {
     error_log("Pengguna belum login. Session user_id tidak ditemukan.");
     echo json_encode(['success' => false, 'message' => 'Pengguna belum login.']);
-    exit();
+    exit;
 }
 
-// Ambil user_id dari sesi
+// Ambil user_id dari session
 $user_id = $_SESSION['user_id'];
-
-// Ambil data pengguna yang terbaru dari database
-$query = "SELECT * FROM users WHERE id=?";
-$stmt = $conn->prepare($query);
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result && $result->num_rows > 0) {
-    $data = $result->fetch_assoc();
-    // Ambil data pengguna
-    $foto = $data['foto'] ?? 'default.png';
-    $saldo = $data['saldo'] ?? 0;
-    $dana_didonasikan = $data['total_donasi'] ?? 0;
-    $total_campaign = $data['total_campaign'] ?? 0;
-    $poin = $data['poin'] ?? 0;
-} else {
-    echo json_encode(['success' => false, 'message' => 'Pengguna tidak ditemukan.']);
-    exit();
-}
 
 // Ambil data dari request (yang dikirim oleh frontend)
 $data = json_decode(file_get_contents("php://input"), true);
@@ -58,36 +34,72 @@ if (empty($order_id) || $amount <= 0 || empty($campaign_id) || empty($user_id)) 
     exit;
 }
 
+// Query untuk mengambil data pengguna
+$query = "SELECT * FROM users WHERE id = ?";
+$stmt = $conn->prepare($query);
+if ($stmt === false) {
+    error_log("Error pada query: " . $conn->error);
+    echo json_encode(['success' => false, 'message' => 'Query gagal dijalankan.']);
+    exit;
+}
+
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Jika pengguna tidak ditemukan
+if ($result->num_rows === 0) {
+    error_log("Pengguna dengan user_id: $user_id tidak ditemukan.");
+    echo json_encode(['success' => false, 'message' => 'Pengguna tidak ditemukan.']);
+    exit;
+}
+
+// Ambil data pengguna
+$user = $result->fetch_assoc();
+
+// Log untuk memeriksa data pengguna yang diterima
+error_log("Data pengguna yang ditemukan: " . print_r($user, true));
+
 // Perbarui saldo, total donasi, dan poin pengguna setelah transaksi
-$new_balance = $saldo + $amount; // Update saldo
-$new_total_donasi = $dana_didonasikan + $amount; // Tambahkan amount ke total donasi
-$new_total_campaign = $total_campaign + 1; // Tambahkan 1 untuk total campaign
-$new_poin = $poin + 1; // Setiap transaksi berhasil, pengguna dapat 1 poin
+$new_balance = $user['saldo'] + $amount;
+$new_total_donasi = $user['total_donasi'] + $amount;
+$new_poin = $user['poin'] + 1; // Setiap transaksi berhasil, pengguna dapat 1 poin
 
 // Log hasil perhitungan untuk debugging
-error_log("Saldo baru: $new_balance, Total donasi baru: $new_total_donasi, Total campaign baru: $new_total_campaign, Poin baru: $new_poin");
+error_log("Saldo baru: $new_balance, Total donasi baru: $new_total_donasi, Poin baru: $new_poin");
 
 // Query untuk memperbarui data pengguna
-$query_update = "UPDATE users SET saldo = ?, total_donasi = ?, total_campaign = ?, poin = ?, updated_at = NOW() WHERE id = ?";
+$query_update = "UPDATE users SET saldo = ?, total_donasi = ?, poin = ?, updated_at = NOW() WHERE id = ?";
 $stmt_update = $conn->prepare($query_update);
-$stmt_update->bind_param("diii", $new_balance, $new_total_donasi, $new_total_campaign, $new_poin, $user_id);
+
+// Cek jika query update gagal
+if ($stmt_update === false) {
+    error_log("Error pada query update: " . $conn->error);
+    echo json_encode(['success' => false, 'message' => 'Query update gagal dijalankan.']);
+    exit;
+}
+
+$stmt_update->bind_param("diii", $new_balance, $new_total_donasi, $new_poin, $user_id);
 
 // Eksekusi update
 if ($stmt_update->execute()) {
-    // Simpan donasi ke tabel campaign jika berhasil
+    // Log untuk memastikan data berhasil diperbarui
+    error_log("Data berhasil diperbarui untuk user_id: $user_id");
+
+    // Simpan donasi ke tabel campaign jika donasi berhasil
     $stmt_campaign = $conn->prepare("INSERT INTO donations (user, campaign_id, amount, message, donated_at, is_anonymous, payment_status, order_id) VALUES (?, ?, ?, '', NOW(), 0, 'success', ?)");
     $stmt_campaign->bind_param("iiis", $user_id, $campaign_id, $amount, $order_id);
-
+    
     if ($stmt_campaign->execute()) {
-        // Beri feedback jika data berhasil disimpan
-        echo json_encode(['success' => true, 'message' => 'Data berhasil diperbarui dan donasi berhasil disimpan.']);
+        $stmt_campaign->close();
+        echo json_encode(['success' => true, 'message' => 'Data berhasil diperbarui.']);
     } else {
         error_log("Error saat menyimpan donasi ke tabel donations: " . $stmt_campaign->error);
-        echo json_encode(['success' => false, 'message' => 'Gagal menyimpan donasi ke tabel donations.']);
+        echo json_encode(['success' => false, 'message' => 'Gagal menyimpan donasi.']);
     }
 
-    $stmt_campaign->close();
 } else {
+    // Menyimpan log error ke file error_log
     error_log("Error saat update user: " . $stmt_update->error);
     echo json_encode(['success' => false, 'message' => 'Gagal memperbarui data pengguna.']);
 }

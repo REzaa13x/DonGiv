@@ -1,6 +1,6 @@
 <?php
-include 'koneksi.php';
 session_start();
+include 'koneksi.php';
 
 $id = $_SESSION['user_id'];
 $query = mysqli_query($conn, "SELECT * FROM users WHERE id='$id' LIMIT 1");
