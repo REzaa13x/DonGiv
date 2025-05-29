@@ -109,7 +109,7 @@ if ($result && $result->num_rows > 0) {
                         <input type="number" id="customAmount" name="amount" placeholder="Jumlah Lainnya" min="1000" required>
                     </div>
 
-                    <input type="hidden" name="user" value="1">
+                    <input type="hidden" name="user" value="<?= $_SESSION['user_id']; ?>"> <!-- ✅ benar -->
                     <input type="hidden" name="campaign_id" value="1">
 
                     <div class="custom-donation">

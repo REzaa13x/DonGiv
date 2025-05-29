@@ -1,0 +1,4 @@
+{"nama":"pako","email":"muichiro@gmail.com","phone":"1234567890","amount":200000,"user":"17","campaign_id":"<br />\n<b>Warning</b>:  Undefined variable $campaign_id in <b>C:\\xampp\\htdocs\\DonGiv s2\\payment\\Payment.php</b> on line <b>113</b><br />\n"}
+{"nama":"pako","email":"muichiro@gmail.com","phone":"1234567890","amount":200000,"user":"17","campaign_id":"<br />\n<b>Warning</b>:  Undefined variable $campaign_id in <b>C:\\xampp\\htdocs\\DonGiv s2\\payment\\Payment.php</b> on line <b>113</b><br />\n"}
+{"nama":"pako","email":"Pako@gmail.com","phone":"1234567890","amount":150000,"user":"17","campaign_id":"1"}
+{"nama":"yk","email":"yk@gmail.com","phone":"1234567890","amount":200000,"user":"18","campaign_id":"1"}

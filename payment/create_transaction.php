@@ -1,4 +1,5 @@
 <?php
+file_put_contents("debug_log.txt", file_get_contents("php://input") . "\n", FILE_APPEND);
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
