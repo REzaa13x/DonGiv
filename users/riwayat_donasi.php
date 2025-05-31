@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) { // disamakan dengan proses_login.php
 $user_id = $_SESSION['user_id'];
 $query = "SELECT * FROM donations WHERE user = ? ORDER BY donated_at DESC";
 $stmt = $conn->prepare($query);
-$stmt->bind_param("s", $user_id);
+$stmt->bind_param("i", $user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
@@ -98,7 +98,9 @@ $result = $stmt->get_result();
     <tbody>
         <?php
         $no = 1;
-        while ($data = $result->fetch_assoc()) {
+        if ($result->num_rows === 0) {
+    echo "<tr><td colspan='5'>Belum ada donasi.</td></tr>";
+}       while ($data = $result->fetch_assoc()) {
         ?>
             <tr>
                 <td><?= $no++; ?></td>

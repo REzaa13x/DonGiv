@@ -76,7 +76,7 @@ $stmt_update->bind_param("diii", $new_balance, $new_total_donasi, $new_total_cam
 if ($stmt_update->execute()) {
     // Simpan donasi ke tabel campaign jika berhasil
     $stmt_campaign = $conn->prepare("INSERT INTO donations (user, campaign_id, amount, message, donated_at, is_anonymous, payment_status, order_id) VALUES (?, ?, ?, '', NOW(), 0, 'success', ?)");
-    $stmt_campaign->bind_param("iiis", $user_id, $campaign_id, $amount, $order_id);
+    $stmt_campaign->bind_param("iids", $user_id, $campaign_id, $amount, $order_id);
 
     if ($stmt_campaign->execute()) {
         // Beri feedback jika data berhasil disimpan
