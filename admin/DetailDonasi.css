@@ -52,7 +52,7 @@ body {
 .detail-section h2 {
   font-size: 1.8em;
   color: #333;
-  border-bottom: 2px solid #4a90e2;
+  border-bottom: 2px solid #1E3A8A;
   padding-bottom: 10px;
 }
 
@@ -88,7 +88,7 @@ body {
 
 .download-button {
   display: inline-block;
-  background: #4a90e2;
+  background: #2563eb;
   color: #fff;
   padding: 10px 15px;
   border-radius: 5px;
@@ -97,7 +97,7 @@ body {
 }
 
 .download-button:hover {
-  background: #357ab8;
+  background: #1E3A8A;
 }
 
 /* Status */

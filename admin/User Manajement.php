@@ -1,117 +1,82 @@
 <?php
 include '../users/koneksi.php';
-
- $query = mysqli_query($conn, "SELECT name, email, role
-    FROM users");
-   
-   $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
+$query = mysqli_query($conn, "SELECT id, name, email, role FROM users");
+$data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Salurkan Donasi</title>
+  <title>Manajemen User</title>
   <link rel="stylesheet" href="Salur.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
+<body class="bg-gray-100">
 
-<body>
   <!-- Sidebar -->
-  <div class="sidebar text-white w-64 py-6 px-4 fixed h-full">
+  <div class="sidebar bg-blue-700 text-white w-64 py-6 px-4 fixed h-full">
     <h2 class="text-2xl font-bold mb-6 flex items-center">
       <i class="fas fa-hand-holding-heart mr-2"></i> DonGiv
     </h2>
     <nav class="space-y-2">
-      <!-- Dashboard -->
-      <a
-        href="Index.php"
-        class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
+      <a href="Index.php" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
         <i class="fas fa-home mr-2"></i> Dashboard
       </a>
-
-      <!-- Donation dengan Submenu -->
       <div class="relative">
-        <a
-          href="#"
-          class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center justify-between"
-          onclick="toggleSubmenu('donation-submenu', event)">
+        <a href="#" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center justify-between" onclick="toggleSubmenu('donation-submenu', event)">
           <span><i class="fas fa-donate mr-2"></i> Management</span>
           <i class="fas fa-chevron-down"></i>
         </a>
-        <div
-          id="donation-submenu"
-          class="submenu bg-blue-800 mt-2 rounded-md">
-          <a href="notifikasi.html" class="block py-2 px-6 hover:bg-blue-900 rounded-md">
-            Notifikasi dan Email
-          </a>
-          <a href="Manajemen.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">
-            Donation
-          </a>
+        <div id="donation-submenu" class="submenu bg-blue-800 mt-2 rounded-md hidden">
+          <a href="notifikasi.html" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Notifikasi dan Email</a>
+          <a href="Manajemen.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Donation</a>
+          <a href="User Manajement.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Manajemen User</a>
         </div>
       </div>
-
-      <!-- Channel -->
-      <a
-        href="Salur.php"
-        class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
-        <i class="fas fa-share-alt mr-2"></i> Channel
+      <a href="RiwayatDonasi.php" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
+        <i class="fas fa-share-alt mr-2"></i> Riwayat Donasi
       </a>
-
-      <!-- Finance -->
-      <a
-        href="User Manajement.php"
-        class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
-        <i class="fas fa-wallet mr-2"></i> Manajement User
+      <a href="KelolaPenyaluran.php" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
+        <i class="fas fa-box mr-2"></i> Kelola Penyaluran
       </a>
-
-      <!-- Log Out -->
-      <a
-        href="#"
-        class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center"
-        onclick="openLogoutModal()">
+      <a href="#" onclick="openLogoutModal()" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
         <i class="fas fa-sign-out-alt mr-2"></i> Log Out
       </a>
-      <!-- Log Out Modal -->
-      <div id="logoutModal" class="modal">
-        <div class="modal-content">
-          <h2>Log Out</h2>
-          <p>Are you sure you want to log out?</p>
-          <div class="modal-buttons">
-            <button class="confirm-button" onclick="confirmLogout()">
-              Yes, Log Out
-            </button>
-            <button class="cancel-button" onclick="closeLogoutModal()">
-              Cancel
-            </button>
-          </div>
-        </div>
-      </div>
     </nav>
   </div>
 
-  <div class="container">
-    <!-- Header -->
-    <header class="header">
-      <h1>Manajemen User</h1>
-      <p>Kelola data pengguna yang terdaftar dalam sistem DonGiv.</p>
+  <!-- Modal Hapus -->
+  <div id="deleteModal" class="fixed inset-0 hidden bg-black bg-opacity-50 justify-center items-center z-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-96">
+      <h2 class="text-lg font-semibold mb-2">Konfirmasi Hapus</h2>
+      <p id="deleteMessage">Apakah Anda yakin ingin menghapus user ini?</p>
+      <div class="flex justify-end mt-4 gap-2">
+        <button onclick="closeDeleteModal()" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Batal</button>
+        <a id="confirmDeleteBtn" href="#" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Hapus</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Konten -->
+  <div class="ml-64 p-6">
+    <header class="mb-6">
+      <h1 class="text-2xl font-bold">Manajemen User</h1>
+      <p class="text-gray-600">Kelola data pengguna yang terdaftar dalam sistem DonGiv.</p>
     </header>
 
-    <!-- Search Bar -->
-    <div class="search-bar">
-      <input type="text" placeholder="Cari donasi..." id="search-input" />
-      <button id="search-btn"><i class="fas fa-search"></i> Cari</button>
+    <!-- Search -->
+    <div class="mb-4 flex gap-2">
+      <input type="text" id="search-input" placeholder="Cari pengguna..." class="px-4 py-2 border rounded w-full" />
+      <button id="search-btn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"><i class="fas fa-search"></i> Cari</button>
     </div>
 
-   <!-- Table User -->
+    <!-- Table -->
     <div class="overflow-x-auto bg-white rounded shadow">
       <table class="min-w-full table-auto text-sm text-left">
-        <thead class="bg-blue-600 text-black">
+        <thead class="bg-blue-600 text-white">
           <tr>
             <th class="px-4 py-3">Nama</th>
             <th class="px-4 py-3">Email</th>
@@ -121,48 +86,55 @@ include '../users/koneksi.php';
           </tr>
         </thead>
         <tbody id="user-tbody">
-           <?php foreach ($data ?? [] as $user): ?>
-         <tr class="border-b">
-  <td class="px-4 py-2"><?= $user['name'] ?></td>
-  <td class="px-4 py-2"><?= $user['email'] ?></td>
-  <td class="px-4 py-2">••••••••</td>
-  <td class="px-4 py-2"><?= $user['role'] ?></td>
-  <td class="px-4 py-2 flex gap-2">
-    <a href="DeleteUser.php?id=1"
-      class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-      onclick="return confirm('Hapus user ini?')">
-      <i class="fas fa-trash-alt"></i> Hapus
-    </a>
-  </td>
-</tr>
- <?php endforeach; ?>
+          <?php foreach ($data as $user): ?>
+            <tr class="border-b">
+              <td class="px-4 py-2"><?= htmlspecialchars($user['name']) ?></td>
+              <td class="px-4 py-2"><?= htmlspecialchars($user['email']) ?></td>
+              <td class="px-4 py-2">••••••••</td>
+              <td class="px-4 py-2"><?= htmlspecialchars($user['role']) ?></td>
+              <td class="px-4 py-2">
+                <button onclick="openDeleteModal('<?= addslashes($user['name']) ?>', <?= $user['id'] ?>)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 flex items-center gap-1">
+                  <i class="fas fa-trash-alt"></i> Hapus
+                </button>
+              </td>
+            </tr>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <p>&copy; 2024 Donasi Online. All rights reserved.</p>
+    <footer class="mt-6 text-center text-sm text-gray-500">
+      &copy; 2024 Donasi Online. All rights reserved.
     </footer>
   </div>
-  <script src="Salur.js"></script>
+
+  <!-- Scripts -->
   <script>
-    document.getElementById("search-btn").addEventListener("click", function() {
-      const keyword = document.getElementById("search-input").value;
+    function openDeleteModal(name, id) {
+      const modal = document.getElementById("deleteModal");
+      const deleteMessage = document.getElementById("deleteMessage");
+      const deleteBtn = document.getElementById("confirmDeleteBtn");
 
-      const xhr = new XMLHttpRequest();
-      xhr.open("GET", "Salur.php?ajax=1&keyword=" + encodeURIComponent(keyword), true);
-      xhr.onload = function() {
-        if (xhr.status === 200) {
-          document.getElementById("donasi-tbody").innerHTML = xhr.responseText;
-        }
-      };
-      xhr.send();
-    });
+      deleteMessage.textContent = `Apakah Anda yakin ingin menghapus user "${name}"?`;
+      deleteBtn.href = `DeleteUser.php?id=${id}`;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
 
-    console.log(<?php echo json_encode($data);?>);
+    function closeDeleteModal() {
+      const modal = document.getElementById("deleteModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    function toggleSubmenu(id, event) {
+      event.preventDefault();
+      const submenu = document.getElementById(id);
+      submenu.classList.toggle("hidden");
+    }
+
+    // Debug output (bisa dihapus saat production)
+    console.log(<?= json_encode($data) ?>);
   </script>
-
 </body>
-
 </html>

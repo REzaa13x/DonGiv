@@ -1,6 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-/* Global Styles */
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -10,7 +8,7 @@
   border: none;
   text-decoration: none;
   text-transform: capitalize;
-  transition: all 0.2s linear;
+  transform: all 0.2s linear;
 }
 
 body {
@@ -18,17 +16,21 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; 
+  overflow-x: hidden; /* Menghilangkan scrollbar horizontal */
 }
 
+/* Container untuk elemen utama */
 .container {
-  margin-left: 250px; 
+  margin-left: 250px; /* Sesuaikan dengan lebar sidebar */
   padding: 20px;
 }
-
 .sidebar {
-  background-color: #1E3A8A;
-  color: white; 
+  background: linear-gradient(
+    to bottom,
+    #1E3A8A,
+    #1E3A8A
+  ); /* Gradasi dari biru tua ke biru muda */
+  color: white; /* Warna teks putih agar kontras */
   width: 250px; /* Lebar sidebar */
   height: 100vh; /* Tinggi sidebar sesuai viewport */
   padding: 20px; /* Padding untuk konten di dalam sidebar */
@@ -128,15 +130,17 @@ body {
   background-color: #5a6268;
 }
 
-/* Header Styles */
+/* Header */
 .header {
-  background-color: #1E3A8A;
+  background: linear-gradient(
+    to bottom,
+    #2563eb,
+    #2563eb
+  ); /* Gradasi dari biru tua ke biru muda */
+  /* Gradasi dari biru ke biru muda */
   padding: 20px;
   border-bottom: 0.5px solid #ccc;
-  border-radius: 15px;
-  margin-left: 270px;
-  margin-top: 10px;
-  margin-right: 10px;
+  border-radius: 15px; /* Sesuaikan nilai sesuai keinginan */
 }
 
 .header h1 {
@@ -145,169 +149,137 @@ body {
   color: #fff;
 }
 
-/* Main Content Styles */
-/* Tambahkan CSS ini untuk menghilangkan box border sebelumnya */
-.main-content {
-  padding: 20px;
-  margin: 10px 10px 10px 250px; /* Sesuaikan margin dengan header */
-  border-radius: 10px;
-  border: none; /* Hilangkan box border sebelumnya */
+.header p {
+  font-size: 1.1 rem;
+  color: #fff;
 }
 
-/* Notification Section Styles */
-.notification-section {
-  margin-bottom: 40px;
-}
-
-.notification-section h2 {
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-  color: #333;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 10px;
-}
-
-.notification-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.notification-item {
-  background-color: #f1f7ff;
-  padding: 15px 20px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  border: 1px solid #d4e2ff;
+/* Search Bar */
+.search-bar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.notification-item p {
-  margin: 0;
-  font-size: 14px;
-  color: #333;
-}
-
-/* Message Section Styles */
-.message-section {
-  margin-bottom: 40px;
-}
-
-.message-section h2 {
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-  color: #333;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 10px;
-}
-
-.message {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.message:last-child {
-  border-bottom: none;
-}
-
-.message .avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #ddd;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  color: #fff;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-.message-content {
-  flex-grow: 1;
-}
-
-.message-content .name {
-  font-weight: bold;
-  font-size: 14px;
-  color: #333;
-}
-
-.message-content .text {
-  font-size: 12px;
-  color: #777;
-}
-
-.message-time {
-  font-size: 11px;
-  color: #aaa;
-}
-/* Email Form Styles */
-.email-form label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-  color: #333;
-  font-size: 1rem;
-}
-
-.email-form input,
-.email-form textarea,
-.email-form select {
-  width: 100%;
-  padding: 12px;
   margin-bottom: 20px;
+}
+
+.search-bar input {
+  margin-top: 10px;
+  width: 1999px;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: #f9f9f9;
-  box-sizing: border-box;
+  border-radius: 5px;
 }
 
-.email-form textarea {
-  height: 120px;
-  resize: vertical;
-}
-
-.email-form .send-email-btn {
-  background-color: #1E3A8A;
-  color: #fff;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 8px;
+.search-bar button {
+  margin-top: 10px;
+  padding: 10px;
+  background: linear-gradient(
+    to bottom,
+    #1E3A8A,
+    #1E3A8A
+  ); /* Gradasi dari biru tua ke biru muda */
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+  height: 40px; /* Sesuaikan tinggi tombol */
+  width: 100px; /* Sesuaikan lebar tombol */
 }
 
-.email-form .send-email-btn:hover {
+.search-bar button:hover {
   background-color: #1E3A8A;
 }
-/* Timestamp Styles */
-.timestamp {
-  font-size: 0.85rem;
-  color: #888;
-  font-style: italic;
-}
-/* Tambahkan CSS ini untuk menghilangkan box border di belakang */
-.notification-section {
-  margin-bottom: 40px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+
+/* Filter Options */
+.filters {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-.message-section {
-  margin-top: 40px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+.filters label {
+  margin: 0px 10px;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+/* CSS */
+/* CSS */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Pastikan border tidak terpisah */
+  table-layout: fixed; /* Pastikan lebar kolom konsisten */
+  border-radius: 10px; /* Tambahkan border radius */
+  overflow: hidden; /* Pastikan border radius terlihat */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Tambahkan shadow untuk efek lebih baik */
+}
+th,
+td {
+  background-color: #fff; /* Warna latar belakang untuk setiap item */
+  border: 1px solid var(--light-color); /* Border untuk setiap item */
+  padding: 1rem; /* Padding di dalam item */
+  margin-bottom: 1rem; /* Jarak bawah antar item */
+  transition: box-shadow 0.3s ease; /* Transisi untuk efek hover */
+  text-align: center;
+}
+
+/* Buat tbody bisa di-scroll */
+tbody {
+  display: block;
+  max-height: 500px; /* Sesuaikan tinggi sesuai kebutuhan */
+  overflow-y: auto;
+}
+
+/* Pastikan thead dan tbody memiliki lebar yang sama */
+thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.bukti-icon {
+  text-align: center;
+}
+
+.bukti-icon a {
+  color: #1E3A8A;
+  text-decoration: none;
+}
+
+.btn-detail {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-detail:hover {
+  background-color: #27ae60;
+}
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+@media (max-width: 768px) {
+  .container {
+    margin-left: 0; /* Hapus margin kiri di layar kecil */
+  }
+
+  .sidebar {
+    transform: translateX(-100%); /* Sembunyikan sidebar secara default */
+  }
+
+  .sidebar.active {
+    transform: translateX(0); /* Tampilkan sidebar saat aktif */
+  }
 }

@@ -54,14 +54,16 @@ if ($result && mysqli_num_rows($result) > 0) {
       <div id="donation-submenu" class="submenu bg-blue-800 mt-2 rounded-md">
         <a href="notifikasi.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Notifikasi dan Email</a>
         <a href="Manajemen.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Donation</a>
+        <a href="User Manajement.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Manjement User</a>
       </div>
     </div>
     <a href="Salur.php" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
-      <i class="fas fa-share-alt mr-2"></i> Channel
+      <i class="fas fa-share-alt mr-2"></i> Riwayat Donasi
     </a>
-    <a href="User Manajement.php" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
-      <i class="fas fa-wallet mr-2"></i> Manajement User
-    </a>
+     <a
+    href="KelolaPenyaluran.php"
+    class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
+    <i class="fas fa-box mr-2"></i> Kelola Penyaluran</a>
     <a href="#" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center" onclick="openLogoutModal()">
       <i class="fas fa-sign-out-alt mr-2"></i> Log Out
     </a>

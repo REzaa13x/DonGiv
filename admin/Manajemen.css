@@ -18,7 +18,7 @@ body {
   overflow-x: hidden; /* Menghilangkan scrollbar horizontal */
 }
 .sidebar {
-  background-color: #2563eb;
+  background-color: #1E3A8A;
   color: white; /* Warna teks putih agar kontras */
   width: 250px; /* Lebar sidebar */
   height: 100vh; /* Tinggi sidebar sesuai viewport */
@@ -121,7 +121,7 @@ body {
 /* Sidebar End */
 
 .header {
-  background-color: #2563eb;
+  background-color: #1E3A8A;
   padding: 20px;
   border-bottom: 0.5px solid #ccc;
   border-radius: 15px; /* Sesuaikan nilai sesuai keinginan */
@@ -171,12 +171,12 @@ body {
 }
 
 .content button.add {
-  background-color: #2563eb;
+  background-color: #1E3A8A;
   color: #fff;
 }
 
 .content button.add:hover {
-  background-color: #2563eb;
+  background-color: #1E3A8A;
 }
 
 .content {
@@ -204,7 +204,7 @@ table th {
 
 .btn-tambah-donasi {
   padding: 10px 20px;
-  background-color: #2563eb; /* Warna biru */
+  background-color: #1E3A8A; /* Warna biru */
   color: white;
   border: none;
   border-radius: 5px;
@@ -212,7 +212,7 @@ table th {
 }
 
 .btn-tambah-donasi:hover {
-  background-color: #2563eb; /* Warna biru lebih gelap untuk hover */
+  background-color: #1E3A8A; /* Warna biru lebih gelap untuk hover */
 }
 
 .delete-btn {
@@ -270,7 +270,7 @@ table th {
 }
 
 .search-bar .fa-search:hover {
-  color: #2563eb; /* Ubah warna ikon saat hover */
+  color: #1E3A8A; /* Ubah warna ikon saat hover */
 }
 
 .footer {

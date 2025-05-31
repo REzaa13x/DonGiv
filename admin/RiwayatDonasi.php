@@ -24,9 +24,6 @@ if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
           <a href='bukti.php'><i class='fas fa-file-alt'></i></a>
         </td>
         <td>
-          <a href='DetailDonasi.php'>
-            <button class='btn-detail'><i class='fas fa-info-circle'></i> Detail</button>
-          </a>
         </td>
       </tr>";
     }
@@ -52,8 +49,8 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Salurkan Donasi</title>
-  <link rel="stylesheet" href="Salur.css" />
+  <title>Riwayat Donasi</title>
+  <link rel="stylesheet" href="RiwayatDonasi.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link
     rel="stylesheet"
@@ -92,22 +89,22 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
           <a href="Manajemen.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">
             Donation
           </a>
+           <a href="User Manajement.php" class="block py-2 px-4 hover:bg-blue-800 rounded-md">
+            Manajement User 
+          </a>
         </div>
       </div>
 
-      <!-- Channel -->
+      <!-- Riwayat Donasi -->
       <a
-        href="Salur.php"
+        href="RiwayatDonasi.php"
         class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
-        <i class="fas fa-share-alt mr-2"></i> Channel
+        <i class="fas fa-share-alt mr-2"></i> Riwayat Donasi
       </a>
-
-      <!-- Finance -->
-      <a
-        href="User Manajement.php"
-        class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
-        <i class="fas fa-wallet mr-2"></i> Manajement User
-      </a>
+       <a
+    href="KelolaPenyaluran.php"
+    class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
+    <i class="fas fa-box mr-2"></i> Kelola Penyaluran</a>
 
       <!-- Log Out -->
       <a
@@ -137,8 +134,7 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
   <div class="container">
     <!-- Header -->
     <header class="header">
-      <h1>Salurkan Donasi</h1>
-      <p>Mari salurkan donasi Anda untuk membantu mereka yang membutuhkan.</p>
+      <h1>Riwayat Donasi</h1>
     </header>
 
     <!-- Search Bar -->
@@ -147,18 +143,6 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
       <button id="search-btn"><i class="fas fa-search"></i> Cari</button>
     </div>
 
-    <!-- Filter Options -->
-    <div class="filters">
-      <label for="filter-date">Filter Tanggal:</label>
-      <input type="date" id="filter-date" />
-      <label for="filter-amount">Filter Jumlah:</label>
-      <select id="filter-amount">
-        <option value="all">Semua</option>
-        <option value="small">Kecil (Rp 0 - Rp 1.000.000)</option>
-        <option value="medium">Sedang (Rp 1.000.000 - Rp 5.000.000)</option>
-        <option value="large">Besar (Rp 5.000.000+)</option>
-      </select>
-    </div>
 
     <!-- Donation Table -->
     <!-- HTML -->
@@ -187,12 +171,13 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
               </a>
             </td>
             <td>
-              <a href="DetailDonasi.php">
-                <button class="btn-detail">
-                  <i class="fas fa-info-circle"></i> Detail
-                </button>
-              </a>
-            </td>
+      <form action="verifikasi_donasi.php" method="POST">
+        <input type="hidden" name="penyaluran_donasi" value="<?= $donasi['penyaluran_donasi'] ?>">
+        <button type="submit" class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">
+          <i class="fas fa-check-circle"></i> Verifikasi
+        </button>
+      </form>
+    </td>
           </tr>
         <?php endforeach; ?>
         <!-- Tambahkan baris lainnya di sini -->
@@ -204,13 +189,12 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
       <p>&copy; 2024 Donasi Online. All rights reserved.</p>
     </footer>
   </div>
-  <script src="Salur.js"></script>
   <script>
     document.getElementById("search-btn").addEventListener("click", function() {
       const keyword = document.getElementById("search-input").value;
 
       const xhr = new XMLHttpRequest();
-      xhr.open("GET", "Salur.php?ajax=1&keyword=" + encodeURIComponent(keyword), true);
+      xhr.open("GET", "RiwayatDonasi.php?ajax=1&keyword=" + encodeURIComponent(keyword), true);
       xhr.onload = function() {
         if (xhr.status === 200) {
           document.getElementById("donasi-tbody").innerHTML = xhr.responseText;

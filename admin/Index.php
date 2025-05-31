@@ -192,18 +192,21 @@ $result_detail_donasi = $conn->query($sql_detail_donasi);
             href="Manajemen.php"
             class="block py-2 px-6 hover:bg-blue-900 rounded-md">
             Donation </a>
+           <a
+        href="User Manajement.php"
+        class="block py-2 px-4 hover:bg-blue-800 rounded-md">
+         Manajement User </a>
         </div>
       </div>
       <a
-        href="Salur.php"
+        href="RiwayatDonasi.php"
         class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
-        <i class="fas fa-share-alt mr-2"></i> Channel
-      </a>
-      <a
-        href="User Manajement.php"
-        class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
-        <i class="fas fa-wallet mr-2"></i> Manajement User
-        <a
+        <i class="fas fa-share-alt mr-2"></i> Riwayat Donasi</a>
+          <a
+    href="KelolaPenyaluran.php"
+    class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
+    <i class="fas fa-box mr-2"></i> Kelola Penyaluran</a>
+          <a
           href="#"
           class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center"
           onclick="openLogoutModal()">

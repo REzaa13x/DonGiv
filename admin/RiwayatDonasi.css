@@ -134,8 +134,8 @@ body {
 .header {
   background: linear-gradient(
     to bottom,
-    #1E3A8A,
-    #1E3A8A
+    #2563eb,
+    #2563eb
   ); /* Gradasi dari biru tua ke biru muda */
   /* Gradasi dari biru ke biru muda */
   padding: 20px;
@@ -186,7 +186,7 @@ body {
 }
 
 .search-bar button:hover {
-  background-color: #2563eb;
+  background-color: #1E3A8A;
 }
 
 /* Filter Options */
@@ -217,6 +217,12 @@ table {
   overflow: hidden; /* Pastikan border radius terlihat */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Tambahkan shadow untuk efek lebih baik */
 }
+
+button {
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
 th,
 td {
   background-color: #fff; /* Warna latar belakang untuk setiap item */
@@ -247,7 +253,7 @@ tbody tr {
 }
 
 .bukti-icon a {
-  color: #2563eb;
+  color: #1E3A8A;
   text-decoration: none;
 }
 
