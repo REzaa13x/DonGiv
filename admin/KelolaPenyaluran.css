@@ -21,8 +21,14 @@ body {
 
 /* Container untuk elemen utama */
 .container {
-  margin-left: 250px; /* Sesuaikan dengan lebar sidebar */
+  .container {
+  margin-left: 270px; /* Disesuaikan sedikit lebih besar dari lebar sidebar */
   padding: 20px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
 }
 .sidebar {
   background: linear-gradient(
@@ -132,15 +138,12 @@ body {
 
 /* Header */
 .header {
-  background: linear-gradient(
-    to bottom,
-    #2563eb,
-    #2563eb
-  ); /* Gradasi dari biru tua ke biru muda */
-  /* Gradasi dari biru ke biru muda */
+  background: linear-gradient(to bottom, #2563eb, #2563eb); /* Gradasi biru */
   padding: 20px;
   border-bottom: 0.5px solid #ccc;
-  border-radius: 15px; /* Sesuaikan nilai sesuai keinginan */
+  border-radius: 15px;
+  margin-left: 17rem; /* Tambahkan ini supaya header tidak ketutupan sidebar */
+  margin-top: 1rem;
 }
 
 .header h1 {
@@ -150,9 +153,10 @@ body {
 }
 
 .header p {
-  font-size: 1.1 rem;
+  font-size: 1.1rem; /* Hapus spasi antara angka dan rem */
   color: #fff;
 }
+
 
 /* Search Bar */
 .search-bar {
@@ -208,6 +212,17 @@ table {
 }
 
 /* CSS */
+/* Form Penyaluran */
+.penyaluran-wrapper {
+  max-width: 1400px;
+  margin: 0 auto; /* Tengahin secara horizontal */
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
 /* CSS */
 table {
   width: 100%;

@@ -59,6 +59,24 @@ if ($stmt->execute()) {
         $update_campaign->execute();
     }
 
+    // Ambil nama campaign dari tabel kampanye_donasi
+$get_campaign = $conn->prepare("SELECT nama_donasi, penanggung_jawab FROM kampanye_donasi WHERE id_donasi = ?");
+$get_campaign->bind_param("i", $campaign_id);
+$get_campaign->execute();
+$get_campaign->bind_result($nama_donasi, $penanggung_jawab);
+$get_campaign->fetch();
+$get_campaign->close();
+
+// Insert ke tabel riwayat_transaksi
+$insert_riwayat = $conn->prepare("
+    INSERT INTO riwayat_transaksi 
+    (id_user, id_donasi, tanggal, penanggung_jawab, nama_donasi, jumlah_donasi)
+    VALUES (?, ?, ?, ?, ?, ?)
+");
+$insert_riwayat->bind_param("iisssd", $user, $campaign_id, $transaction_time, $penanggung_jawab, $nama_donasi, $amount);
+$insert_riwayat->execute();
+$insert_riwayat->close();
+
     echo json_encode(["success" => true]);
 } else {
     http_response_code(500);

@@ -1,4 +1,7 @@
+/* Import Poppins Font */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Reset CSS */
 * {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -7,8 +10,9 @@
   outline: none;
   border: none;
   text-decoration: none;
-  text-transform: capitalize;
-  transform: all 0.2s linear;
+  /* Hapus text-transform: capitalize; jika Anda tidak ingin semua teks menjadi kapital */
+  /* text-transform: capitalize; */
+  transition: all 0.2s linear; /* Perbaiki typo dari 'transform' menjadi 'transition' */
 }
 
 body {
@@ -16,41 +20,45 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Menghilangkan scrollbar horizontal */
+  /* PENTING: Hapus 'overflow-x: hidden;' dari body. Ini yang menyebabkan konten terpotong. */
+  /* overflow-x: hidden; */
 }
 
 /* Container untuk elemen utama */
 .container {
   margin-left: 250px; /* Sesuaikan dengan lebar sidebar */
   padding: 20px;
+  /* PENTING: Tambahkan overflow-x: auto; di sini. Ini akan membuat scrollbar horizontal muncul di area konten utama */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Untuk scroll yang lebih mulus di perangkat iOS */
 }
+
+/* Sidebar (Tidak ada perubahan signifikan, hanya penyesuaian minor) */
 .sidebar {
-  background: linear-gradient(
-    to bottom,
-    #1E3A8A,
-    #1E3A8A
-  ); /* Gradasi dari biru tua ke biru muda */
-  color: white; /* Warna teks putih agar kontras */
-  width: 250px; /* Lebar sidebar */
-  height: 100vh; /* Tinggi sidebar sesuai viewport */
-  padding: 20px; /* Padding untuk konten di dalam sidebar */
-  position: fixed; /* Sidebar tetap di tempat */
+  background: linear-gradient(to bottom, #1E3A8A, #1E3A8A);
+  color: white;
+  width: 250px;
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
   top: 0;
   left: 0;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek depth */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 99; /* Pastikan sidebar di atas konten lain */
 }
 
 .sidebar a {
-  color: white; /* Warna teks putih */
-  padding: 10px 15px; /* Padding untuk item */
-  margin: 5px 0; /* Margin antar item */
-  border-radius: 5px; /* Sudut yang lebih lembut */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Animasi transisi */
+  color: white;
+  padding: 10px 15px;
+  margin: 5px 0;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .sidebar a:hover {
-  transform: translateX(0.3px); /* Geser sedikit ke kanan saat hover */
+  transform: translateX(0.3px);
 }
+
 /* Submenu styling */
 .submenu {
   display: none;
@@ -58,6 +66,8 @@ body {
 .submenu.active {
   display: block;
 }
+
+/* Modal Styles (Tidak ada perubahan yang diperlukan untuk masalah tabel) */
 /* Modal Styles */
 .modal {
   display: none; /* Modal disembunyikan secara default */
@@ -101,46 +111,13 @@ body {
 .modal-buttons {
   margin-top: 20px;
 }
-
-.confirm-button,
-.cancel-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  margin: 0 10px;
-}
-
-.confirm-button {
-  background-color: #dc3545;
-  color: white;
-}
-
-.confirm-button:hover {
-  background-color: #c82333;
-}
-
-.cancel-button {
-  background-color: #6c757d;
-  color: white;
-}
-
-.cancel-button:hover {
-  background-color: #5a6268;
-}
-
-/* Header */
+/* Header (Tidak ada perubahan yang diperlukan untuk masalah tabel) */
 .header {
-  background: linear-gradient(
-    to bottom,
-    #2563eb,
-    #2563eb
-  ); /* Gradasi dari biru tua ke biru muda */
-  /* Gradasi dari biru ke biru muda */
+  background: linear-gradient(to bottom, #2563eb, #2563eb);
   padding: 20px;
   border-bottom: 0.5px solid #ccc;
-  border-radius: 15px; /* Sesuaikan nilai sesuai keinginan */
+  border-radius: 15px;
+  margin-bottom: 20px; /* Tambahkan ini agar ada ruang di bawah header */
 }
 
 .header h1 {
@@ -150,20 +127,21 @@ body {
 }
 
 .header p {
-  font-size: 1.1 rem;
+  font-size: 1.1rem; /* Perbaiki typo dari 'rem' */
   color: #fff;
 }
 
-/* Search Bar */
+/* Search Bar (Penyesuaian agar tidak terlalu lebar) */
 .search-bar {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Ubah ini agar tidak selalu di tengah */
   margin-bottom: 20px;
+  max-width: 600px; /* Batasi lebar maksimal search bar */
 }
 
 .search-bar input {
   margin-top: 10px;
-  width: 1999px;
+  width: 100%; /* Agar input mengisi lebar yang tersedia dalam search-bar */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -172,50 +150,34 @@ body {
 .search-bar button {
   margin-top: 10px;
   padding: 10px;
-  background: linear-gradient(
-    to bottom,
-    #1E3A8A,
-    #1E3A8A
-  ); /* Gradasi dari biru tua ke biru muda */
+  background: linear-gradient(to bottom, #1E3A8A, #1E3A8A);
   color: white;
   border-radius: 5px;
   margin-left: 10px;
   cursor: pointer;
-  height: 40px; /* Sesuaikan tinggi tombol */
-  width: 100px; /* Sesuaikan lebar tombol */
+  height: 40px;
+  width: 100px;
+  flex-shrink: 0; /* Mencegah tombol mengecil */
 }
 
 .search-bar button:hover {
   background-color: #1E3A8A;
 }
 
-/* Filter Options */
-.filters {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
+/* Filter Options (Tidak ada perubahan) */
+.filters { /* ... */ }
+.filters label { /* ... */ }
 
-.filters label {
-  margin: 0px 10px;
-}
-
-/* Table Styles */
+/* Table Styles - BAGIAN INI YANG DIUBAH/DITAMBAH */
 table {
-  width: 100%;
+  width: 100%; /* Tabel akan mengambil 100% lebar kontainer .container */
   border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-/* CSS */
-/* CSS */
-table {
-  width: 100%;
-  border-collapse: collapse; /* Pastikan border tidak terpisah */
-  table-layout: fixed; /* Pastikan lebar kolom konsisten */
-  border-radius: 10px; /* Tambahkan border radius */
-  overflow: hidden; /* Pastikan border radius terlihat */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Tambahkan shadow untuk efek lebih baik */
+  table-layout: fixed; /* PENTING: Memungkinkan kita mengatur lebar kolom individu */
+  border-radius: 10px;
+  overflow: hidden; /* Memastikan border-radius terlihat pada konten yang meluber (jika ada) */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* Pastikan latar belakang tabel putih */
+  margin-bottom: 20px; /* Jarak bawah ke footer */
 }
 
 button {
@@ -225,27 +187,83 @@ button {
 
 th,
 td {
-  background-color: #fff; /* Warna latar belakang untuk setiap item */
-  border: 1px solid var(--light-color); /* Border untuk setiap item */
-  padding: 1rem; /* Padding di dalam item */
-  margin-bottom: 1rem; /* Jarak bawah antar item */
-  transition: box-shadow 0.3s ease; /* Transisi untuk efek hover */
+  background-color: #fff; /* Warna latar belakang untuk setiap sel */
+  /* PENTING: Ganti var(--light-color) dengan warna solid, karena --light-color tidak didefinisikan */
+  border: 1px solid #e0e0e0; /* Warna border yang jelas */
+  padding: 1rem;
+  /* Hapus margin-bottom: 1rem; karena ini tidak berlaku untuk sel tabel (td/th) */
+  /* margin-bottom: 1rem; */
+  transition: box-shadow 0.3s ease;
   text-align: center;
+  word-wrap: break-word; /* PENTING: Pastikan teks panjang dipecah ke baris baru */
+  word-break: break-all; /* PENTING: Memecah kata yang sangat panjang (misal path file) tanpa spasi */
 }
 
-/* Buat tbody bisa di-scroll */
+/* PENTING: Atur lebar spesifik untuk setiap kolom */
+/* Pastikan total lebar (width atau min-width) semua kolom cukup untuk konten Anda */
+table thead th:nth-child(1),
+table tbody td:nth-child(1) { /* Kolom Tanggal */
+  width: 100px;
+  min-width: 100px;
+}
+table thead th:nth-child(2),
+table tbody td:nth-child(2) { /* Kolom Penanggung Jawab */
+  width: 160px;
+  min-width: 140px;
+}
+table thead th:nth-child(3),
+table tbody td:nth-child(3) { /* Kolom Nama Donasi */
+  width: 160px;
+  min-width: 140px;
+}
+table thead th:nth-child(4),
+table tbody td:nth-child(4) { /* Kolom Total */
+  width: 130px;
+  min-width: 120px;
+}
+table thead th:nth-child(5),
+table tbody td:nth-child(5) { /* Kolom Bukti */
+  width: 80px; /* Jika hanya ikon, ini cukup */
+  min-width: 70px;
+}
+table thead th:nth-child(6),
+table tbody td:nth-child(6) { /* Kolom Aksi (Tombol Verifikasi) */
+  width: 140px; /* Beri ruang yang cukup untuk tombol */
+  min-width: 130px;
+}
+
+/* Perhitungan Total Lebar Minimum Kolom (contoh dengan nilai di atas):
+   100 + 140 + 140 + 120 + 70 + 130 = 700px.
+   Jika kontainer memiliki lebar lebih dari 700px, sisa ruang akan dibagi oleh browser.
+   Jika kurang, scrollbar horizontal akan muncul karena overflow-x: auto pada .container.
+*/
+
+/* Buat tbody bisa di-scroll secara vertikal */
 tbody {
-  display: block;
-  max-height: 500px; /* Sesuaikan tinggi sesuai kebutuhan */
-  overflow-y: auto;
+  display: block; /* PENTING untuk vertical scroll */
+  max-height: 400px; /* Sesuaikan tinggi sesuai kebutuhan Anda */
+  overflow-y: auto; /* Akan menampilkan scrollbar vertikal jika konten melebihi max-height */
+  width: 100%; /* Pastikan tbody mengambil 100% lebar */
 }
 
-/* Pastikan thead dan tbody memiliki lebar yang sama */
+/* Pastikan thead dan tbody memiliki lebar kolom yang sama */
 thead,
 tbody tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
+  display: table; /* PENTING agar thead dan tbody tr bisa mengambil lebar 100% dan column widths bekerja */
+  width: 100%; /* Ambil 100% lebar tabel */
+  table-layout: fixed; /* Memastikan lebar kolom sama dengan thead */
+}
+
+/* Styling untuk scrollbar (opsional, untuk tampilan yang lebih baik) */
+tbody::-webkit-scrollbar {
+  width: 8px;
+}
+tbody::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+tbody::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
 }
 
 .bukti-icon {
@@ -255,6 +273,12 @@ tbody tr {
 .bukti-icon a {
   color: #1E3A8A;
   text-decoration: none;
+  /* Jika teks C:\S2\ masih muncul, Anda bisa mencoba menyembunyikannya atau memotongnya dengan CSS ini: */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
+  /* display: block; */
+  /* width: 100%; */
 }
 
 .btn-detail {
@@ -269,6 +293,7 @@ tbody tr {
 .btn-detail:hover {
   background-color: #27ae60;
 }
+
 /* Footer */
 .footer {
   text-align: center;
@@ -276,16 +301,77 @@ tbody tr {
   font-size: 0.9rem;
   color: #7f8c8d;
 }
+
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .container {
     margin-left: 0; /* Hapus margin kiri di layar kecil */
+    padding: 10px; /* Kurangi padding di layar kecil */
   }
 
   .sidebar {
     transform: translateX(-100%); /* Sembunyikan sidebar secara default */
+    transition: transform 0.3s ease; /* Tambahkan transisi untuk efek slide */
+    z-index: 100; /* Pastikan sidebar di atas konten lain saat dibuka */
   }
 
   .sidebar.active {
     transform: translateX(0); /* Tampilkan sidebar saat aktif */
+  }
+
+  /* Untuk mencegah konten di bawah sidebar saat sidebar terbuka */
+  body.sidebar-open {
+    overflow: hidden; /* Mencegah scroll body saat sidebar terbuka */
+  }
+
+  .header h1 {
+    font-size: 1.8rem; /* Ukuran font lebih kecil untuk header */
+  }
+
+  .search-bar {
+    flex-direction: column; /* Ubah ke kolom di layar kecil */
+    max-width: none; /* Izinkan search bar mengambil lebar penuh */
+  }
+
+  .search-bar input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .search-bar button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  th, td {
+    padding: 0.75rem; /* Kurangi padding sel tabel di mobile */
+    font-size: 0.9em; /* Ukuran font sedikit lebih kecil */
+  }
+
+  /* Sesuaikan lebar kolom untuk mobile agar tidak terlalu sempit */
+  table thead th:nth-child(1),
+  table tbody td:nth-child(1) { /* Tanggal */
+    min-width: 80px; /* Lebih kecil di mobile */
+  }
+  table thead th:nth-child(2),
+  table tbody td:nth-child(2) { /* Penanggung Jawab */
+    min-width: 100px;
+  }
+  table thead th:nth-child(3),
+  table tbody td:nth-child(3) { /* Nama Donasi */
+    min-width: 100px;
+  }
+  table thead th:nth-child(4),
+  table tbody td:nth-child(4) { /* Total */
+    min-width: 90px;
+  }
+  table thead th:nth-child(5),
+  table tbody td:nth-child(5) { /* Bukti */
+    min-width: 50px;
+  }
+  table thead th:nth-child(6),
+  table tbody td:nth-child(6) { /* Aksi */
+    min-width: 90px; /* Cukup untuk tombol di mobile */
   }
 }

@@ -31,7 +31,7 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
           <i class="fas fa-chevron-down"></i>
         </a>
         <div id="donation-submenu" class="submenu bg-blue-800 mt-2 rounded-md hidden">
-          <a href="notifikasi.html" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Notifikasi dan Email</a>
+          <a href="notifikasi.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Notifikasi dan Email</a>
           <a href="Manajemen.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Donation</a>
           <a href="User Manajement.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Manajemen User</a>
         </div>

@@ -1,279 +1,382 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Reset dan Box Sizing */
 * {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  border: none;
-  text-decoration: none;
-  text-transform: capitalize;
-  transform: all 0.2s linear;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Sangat penting untuk layout yang konsisten */
+    outline: none;
+    border: none;
+    text-decoration: none;
+    /* text-transform: capitalize; */ /* Hapus ini jika tidak ingin semua teks jadi kapital */
+    transition: all 0.2s linear; /* Perbaiki typo 'transform' menjadi 'transition' */
 }
+
 body {
-  background-color: #f4f4f9;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Menghilangkan scrollbar horizontal */
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden; */ /* Hapus ini agar scrollbar horizontal muncul jika ada overflow, lebih baik perbaiki sumber overflow */
 }
+
+/* Sidebar Styling */
 .sidebar {
-  background-color: #1E3A8A;
-  color: white; /* Warna teks putih agar kontras */
-  width: 250px; /* Lebar sidebar */
-  height: 100vh; /* Tinggi sidebar sesuai viewport */
-  padding: 20px; /* Padding untuk konten di dalam sidebar */
-  position: fixed; /* Sidebar tetap di tempat */
-  top: 0;
-  left: 0;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek depth */
+    background-color: #1E3A8A; /* blue-900 */
+    color: white;
+    width: 250px; /* Lebar sidebar */
+    height: 100vh;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Pastikan sidebar di atas konten lain */
+}
+
+.sidebar h2 {
+    /* Tambahkan styling khusus jika diperlukan */
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: bold; /* font-bold */
+    margin-bottom: 1.5rem; /* mb-6 */
+    display: flex; /* flex */
+    align-items: center; /* items-center */
 }
 
 .sidebar a {
-  color: #2563eb; /* Warna teks putih */
-  padding: 10px 15px; /* Padding untuk item */
-  margin: 5px 0; /* Margin antar item */
-  border-radius: 5px; /* Sudut yang lebih lembut */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Animasi transisi */
+    color: white; /* Ubah warna teks link sidebar menjadi putih */
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex; /* Agar ikon dan teks sejajar */
+    align-items: center; /* Pusatkan secara vertikal */
 }
 
 .sidebar a:hover {
-  transform: translateX(0.3px); /* Geser sedikit ke kanan saat hover */
+    background-color: #2563eb; /* blue-700 */
+    transform: translateX(3px); /* Geser sedikit ke kanan saat hover */
 }
+
 /* Submenu styling */
 .submenu {
-  display: none;
+    background-color: #2c5282; /* blue-800 */
+    margin-top: 0.5rem; /* mt-2 */
+    border-radius: 0.375rem; /* rounded-md */
+    padding-left: 0.5rem; /* Tambah padding untuk item submenu */
 }
 .submenu.active {
-  display: block;
+    display: block;
 }
+.submenu a {
+    padding-left: 2.5rem; /* px-6, lebih dalam dari parent */
+}
+.submenu a:hover {
+    background-color: #1a202c; /* blue-900 */
+}
+
 /* Modal Styles */
 .modal {
-  display: none; /* Modal disembunyikan secara default */
-  position: fixed;
-  z-index: 999999;
-  left: 0;
-  top: 0;
-  width: 100vw; /* Ukuran lebar background */
-  height: 100vh; /* Ukuran tinggi background */
-  background-color: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
-  backdrop-filter: blur(5px); /* Blur latar belakang */
-  margin: 0; /* Pastikan margin 0 */
-  padding: 0; /* Pastikan padding 0 */
-  overflow: hidden; /* Pastikan overflow hidden */
-  box-sizing: border-box; /* Pastikan box-sizing border-box */
+    display: none;
+    position: fixed;
+    z-index: 999999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .modal-content {
-  background-color: white;
-  margin: 15% auto; /* Posisi modal di tengah layar */
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .modal-content h2 {
-  margin-bottom: 10px; /* Jarak antara judul dan paragraf */
-  color: black; /* Pastikan warna teks hitam */
-  font-size: 24px; /* Ukuran teks yang jelas */
-  font-weight: bold;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .modal-content p {
-  margin-bottom: 20px; /* Jarak antara paragraf dan tombol */
-  color: black; /* Pastikan warna teks hitam */
-  font-size: 16px; /* Ukuran teks yang jelas */
+    margin-bottom: 20px;
+    color: black;
+    font-size: 16px;
 }
 
 .modal-buttons {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .confirm-button,
 .cancel-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 10px;
 }
 
 .confirm-button {
-  background-color: #dc3545;
-  color: white;
+    background-color: #dc3545;
+    color: white;
 }
 
 .confirm-button:hover {
-  background-color: #c82333;
+    background-color: #c82333;
 }
 
 .cancel-button {
-  background-color: #6c757d;
-  color: white;
+    background-color: #6c757d;
+    color: white;
 }
 
 .cancel-button:hover {
-  background-color: #5a6268;
+    background-color: #5a6268;
 }
-/* Sidebar End */
 
+/* Header Styling */
 .header {
-  background-color: #1E3A8A;
-  padding: 20px;
-  border-bottom: 0.5px solid #ccc;
-  border-radius: 15px; /* Sesuaikan nilai sesuai keinginan */
-  margin-top: 10px;
-  margin-left: 270px;
-  margin-right: 15px;
-}
-
-.header .company-info {
-  display: flex;
-  flex-direction: column;
+    background-color: #1E3A8A; /* blue-900 */
+    padding: 20px;
+    border-bottom: 0.5px solid #ccc;
+    border-radius: 0 0 15px 0; /* Hanya sudut kanan bawah */
+    /* margin-top: 10px; */ /* Hapus atau sesuaikan jika tidak perlu */
+    /* margin-left: 270px; */ /* Dihandle oleh ml-64 di HTML */
+    /* margin-right: 15px; */ /* Dihandle oleh max-w-screen-xl dan mx-auto di content */
+    z-index: 50; /* Pastikan di bawah modal tapi di atas konten utama */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Tambahkan bayangan */
 }
 
 .header h1 {
-  margin: 10px;
-  font-size: 30px;
-  font-weight: bold;
-  color: white;
+    margin: 0; /* Hapus margin default */
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-align: center; /* Pusatkan judul */
 }
 
-.header .company-info p {
-  margin: 0;
-  color: gray;
-}
-
-.content .action-button {
-  display: flex;
-  gap: 10px;
-}
-
-.content button {
-  padding: 10px 15px;
-  font-size: 0.9rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: filter 0.3s ease, background-color 0.3s ease; /* Tambahkan transisi */
-}
-
-.content button.import {
-  background-color: #f0f0f0;
-  color: #333;
-}
-
-.content button.import:hover {
-  filter: brightness(90%);
-}
-
-.content button.add {
-  background-color: #1E3A8A;
-  color: #fff;
-}
-
-.content button.add:hover {
-  background-color: #1E3A8A;
-}
-
+/* Main Content Styling */
 .content {
-  padding: 20px;
+    /* padding: 20px; */ /* Dihandle oleh px-6 py-4 di HTML */
+    /* margin-left: 250px; */ /* Dihandle oleh ml-64 di HTML */
+    padding-top: 20px; /* Tambahkan padding atas agar tidak terlalu mepet header */
+}
+
+/* Search Bar & Add Button Container */
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+    /* margin-left: 250px; */ /* Dihandle oleh ml-64 di HTML */
+    padding: 0 20px; /* Tambahkan padding agar tidak terlalu mepet samping */
+}
+
+.search-bar {
+    display: flex; /* Gunakan flexbox untuk search bar */
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Batasi lebar search bar */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: white; /* Background putih untuk search bar */
+}
+
+.search-bar input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 5px;
+    background-color: transparent; /* Pastikan input background transparan */
+}
+
+.search-bar .fa-search {
+    color: #aaa;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.search-bar .fa-search:hover {
+    color: #1E3A8A;
+}
+
+/* Table Styling */
+.table-container {
+    background-color: #fff;
+    border-radius: 8px; /* Sudut melengkung */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Bayangan */
+    overflow-x: auto; /* Penting untuk responsivitas tabel */
+    /* margin-left: 250px; */ /* Dihandle oleh ml-64 di HTML */
+    /* width: 83%; */ /* Hapus width tetap ini */
+    margin-top: 20px;
+    padding: 15px; /* Padding di dalam container tabel */
 }
 
 table {
-  width: 83%;
-  border-collapse: collapse;
-  background-color: #fff;
-  margin-top: 20px;
-  margin-left: 250px;
+    width: 100%; /* Tabel mengisi penuh container */
+    border-collapse: collapse;
+    /* margin-left: 0; */ /* Pastikan tidak ada margin-left tambahan */
 }
 
 table th,
 table td {
-  text-align: left;
-  padding: 12px;
-  border: 1px solid #ddd;
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ddd;
+    white-space: nowrap; /* Mencegah teks terpotong di sel */
 }
 
 table th {
-  background-color: #f4f4f4;
+    background-color: #f4f4f4;
+    font-weight: 600;
+}
+
+/* Button Styling (General) */
+.content button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.content button.import {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.content button.import:hover {
+    background-color: #e0e0e0;
+}
+
+.content button.add {
+    background-color: #1E3A8A;
+    color: #fff;
+}
+
+.content button.add:hover {
+    background-color: #1a202c; /* blue-900 */
 }
 
 .btn-tambah-donasi {
-  padding: 10px 20px;
-  background-color: #1E3A8A; /* Warna biru */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    padding: 10px 20px;
+    background-color: #1E3A8A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .btn-tambah-donasi:hover {
-  background-color: #1E3A8A; /* Warna biru lebih gelap untuk hover */
+    background-color: #1a202c;
 }
 
 .delete-btn {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
 }
 
 .delete-btn:hover {
-  background-color: #e60000;
+    background-color: #e60000;
 }
 
-.search-bar {
-  margin-left: 250px;
-  flex: 1; /* Agar elemen ini mengambil ruang yang tersedia */
-  display: flex;
-  align-items: center;
-}
-
-/* Kontainer utama untuk search bar dan tombol */
-.search-bar-container {
-  display: flex;
-  align-items: center; /* Sejajarkan elemen secara vertikal */
-  justify-content: space-between; /* Jarak antar elemen diatur otomatis */
-  gap: 10px; /* Beri jarak antara search bar dan tombol */
-  margin-bottom: 20px;
-}
-
-.search-bar {
-  display: grid;
-  grid-template-columns: 1fr auto; /* Input mengambil ruang yang tersedia, ikon di sebelah kanan */
-  align-items: center;
-  width: 100%; /* Sesuaikan lebar sesuai kebutuhan */
-  border: 1px solid #fff; /* Tambahkan border untuk search bar */
-  border-radius: 5px; /* Sudut melengkung */
-  padding: 5px 10px; /* Padding untuk input dan ikon */
-}
-
-.search-bar input {
-  border: none; /* Hilangkan border default input */
-  outline: none; /* Hilangkan outline saat input aktif */
-  font-size: 1rem;
-  padding: 5px; /* Padding untuk input */
-}
-
-.search-bar .fa-search {
-  color: #aaa; /* Warna ikon */
-  font-size: 1rem;
-  cursor: pointer; /* Ubah kursor saat hover */
-}
-
-.search-bar .fa-search:hover {
-  color: #1E3A8A; /* Ubah warna ikon saat hover */
-}
-
+/* Footer Styling */
 .footer {
-  text-align: center;
-  font-size: 15px;
+    text-align: center;
+    font-size: 15px;
+    padding: 1rem;
+    color: #4a5568;
+    border-top: 1px solid #e2e8f0;
+    background-color: #fff;
+    /* margin-left: 250px; */ /* Dihandle oleh ml-64 di HTML */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        box-shadow: none;
+        padding-bottom: 10px; /* Sedikit padding bawah saat mobile */
+    }
+    .sidebar h2 {
+        justify-content: center; /* Pusatkan logo di mobile */
+    }
+    .sidebar nav {
+        display: flex;
+        flex-wrap: wrap; /* Wrap menu item jika terlalu banyak */
+        justify-content: center;
+    }
+    .sidebar nav a {
+        flex: 1 1 auto; /* Ambil ruang yang tersedia */
+        text-align: center;
+        justify-content: center; /* Pusatkan teks dan ikon */
+        margin: 5px;
+    }
+    .submenu {
+        width: 100%;
+        margin-top: 0;
+        border-radius: 0;
+        padding-left: 0;
+    }
+    .submenu a {
+        padding-left: 1rem; /* Kurangi padding di submenu untuk mobile */
+    }
+
+    .header {
+        margin-left: 0; /* Header tidak perlu margin kiri di mobile */
+        border-radius: 0; /* Hapus border radius di mobile */
+    }
+    .content {
+        margin-left: 0; /* Konten tidak perlu margin kiri di mobile */
+        padding-top: 1rem; /* Sesuaikan padding atas */
+    }
+    .footer {
+        margin-left: 0; /* Footer tidak perlu margin kiri di mobile */
+    }
+
+    .flex-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .search-bar {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 1rem;
+    }
+    .table-container {
+        overflow-x: auto; /* Memungkinkan scrolling horizontal untuk tabel */
+        padding: 10px; /* Kurangi padding container tabel */
+    }
+    table {
+        min-width: 700px; /* Pastikan tabel tidak terlalu kecil */
+    }
+    table th, table td {
+        padding: 8px; /* Kurangi padding sel tabel */
+    }
 }

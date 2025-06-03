@@ -21,67 +21,108 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <title>Riwayat Donasi</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        table {
-            width: 90%;
-            margin: auto;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #888;
-            text-align: center;
-        }
-        th {
-            background-color: #f0f0f0;
-        }
-        img {
-            max-width: 100px;
-            max-height: 100px;
-        }
-        .btn {
-            padding: 5px 10px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background: #0056b3;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f4f9ff;
+        margin: 0;
+        padding: 0;
+    }
 
-        /* Modal style */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            padding-top: 60px;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-        }
+    h2 {
+        text-align: center;
+        color: #003f88;
+        margin-top: 40px;
+    }
 
-        .modal-content {
-            background-color: #fff;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 400px;
-            border-radius: 8px;
-        }
+    .back-btn {
+        display: inline-block;
+        margin: 20px;
+        background-color: #0056b3;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+    }
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-    </style>
+    .back-btn:hover {
+        background-color: #003f88;
+    }
+
+    table {
+        width: 90%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 63, 136, 0.2);
+    }
+
+    th, td {
+        padding: 12px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+
+    th {
+        background-color: #e3f2fd;
+        color: #003f88;
+    }
+
+    tr:hover {
+        background-color: #f0f8ff;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        background: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .btn:hover {
+        background: #0056b3;
+    }
+.modal {
+    display: none; /* ini menyembunyikan modal saat awal */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+    .modal-content {
+        background-color: #fff;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 400px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 63, 136, 0.3);
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+</style>
+
 </head>
 <body>
+    <a href="prof.php" class="back-btn">&#8592; Kembali</a>
+
 
 <h2 style="text-align: center;">Riwayat Donasi Anda</h2>
 
