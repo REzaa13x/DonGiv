@@ -58,8 +58,9 @@ $email = $_SESSION['email'] ?? 'name@gmail.com';
       </a>
 
       <div class="nav-links">
-        <a href="#Home">Home</a>
+        <a href="DonGiv.php">Home</a>
         <a href="#Donations">Donations</a>
+        <a href="#Volunter">Volunteer</a>
         <a href="#About">About</a>
         <a href="#Contact">Contact</a>
 

@@ -90,7 +90,39 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                     mysqli_stmt_close($stmt_disbursed);
                 }
             }
+            
+            // --- Query untuk Leaderboard Donatur Teratas (Di Sini) ---
+            $leaderboard = [];
+            $total_donasi_leaderboard = 0; // Untuk total di footer leaderboard
 
+            // PERBAIKAN QUERY SESUAI STRUKTUR TABEL 'donations' YANG ANDA BERIKAN
+            $sql_leaderboard = "
+                SELECT
+                    u.name AS donatur_name,
+                    SUM(d.amount) AS total_donasi_user -- Kolom amount di tabel donations
+                FROM donations d -- Nama tabel donasi Anda
+                JOIN users u ON d.user = u.id -- Kolom 'user' di donations, join ke 'id' di users
+                WHERE d.campaign_id = ? -- Kolom 'campaign_id' di tabel donations
+                GROUP BY u.id, u.name
+                ORDER BY total_donasi_user DESC
+                LIMIT 5 -- Mengambil 5 donatur teratas
+            ";
+
+            $stmt_leaderboard = mysqli_prepare($conn, $sql_leaderboard);
+
+            if ($stmt_leaderboard) {
+                mysqli_stmt_bind_param($stmt_leaderboard, "i", $id_kampanye);
+                mysqli_stmt_execute($stmt_leaderboard);
+                $result_leaderboard = mysqli_stmt_get_result($stmt_leaderboard);
+
+                while ($row = mysqli_fetch_assoc($result_leaderboard)) {
+                    $leaderboard[] = $row;
+                    $total_donasi_leaderboard += $row['total_donasi_user']; // Hitung total dari yang ada di leaderboard
+                }
+                mysqli_stmt_close($stmt_leaderboard);
+            } else {
+                error_log("Prepare failed for leaderboard query: " . mysqli_error($conn));
+            }
 
         } else {
             $message = "Kampanye donasi tidak ditemukan atau tidak aktif.";
@@ -179,6 +211,60 @@ mysqli_close($conn);
             margin-top: 15px; /* Jarak dari amount-display */
             margin-bottom: 20px; /* Jarak dari deskripsi kampanye */
             font-weight: bold;
+        }
+
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden; /* For rounded corners on table */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .leaderboard-table th,
+        .leaderboard-table td {
+            padding: 15px;
+            border-bottom: 1px solid #d1d5db;
+            text-align: left;
+        }
+
+        .leaderboard-table th {
+            background-color: #e5f1ff;
+            color: #1E3A8A;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        .leaderboard-table tbody tr:nth-child(even) {
+            background-color: #f8fafc; /* Tailwind gray-50 */
+        }
+
+        .leaderboard-table tbody tr:hover {
+            background-color: #eff6ff; /* Tailwind blue-50 */
+        }
+
+        .leaderboard-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .total-row {
+            font-weight: 700;
+            background-color: #e0f2f7; /* Light cyan */
+            color: #1E3A8A;
+            border-top: 2px solid #2563eb;
+        }
+
+        .total-row td {
+            padding: 15px;
+        }
+
+        .no-data {
+            padding: 30px;
+            font-size: 1.1em;
+            color: #424242;
         }
 
 
@@ -387,48 +473,37 @@ mysqli_close($conn);
     </div>
   <?php endif; ?>
 
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" id="Leaderboard">
-    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Leaderboard Pendonasi</h2>
+  <section class="leaderboard-container">
+    <h2>Leaderboard Pendonasi</h2>
     <div class="overflow-x-auto">
-      <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+      <table class="leaderboard-table">
         <thead>
-          <tr class="bg-blue-600 text-white">
-            <th class="py-3 px-6 text-left">Peringkat</th>
-            <th class="py-3 px-6 text-left">Nama</th>
-            <th class="py-3 px-6 text-left">Jumlah Donasi</th>
+          <tr>
+            <th>Peringkat</th>
+            <th>Nama Donatur</th>
+            <th>Jumlah Donasi</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="border-t">
-            <td class="py-4 px-6 text-gray-800">1</td>
-            <td class="py-4 px-6 text-gray-800">John Doe</td>
-            <td class="py-4 px-6 text-gray-800">Rp 10.000.000</td>
-          </tr>
-          <tr class="border-t">
-            <td class="py-4 px-6 text-gray-800">2</td>
-            <td class="py-4 px-6 text-gray-800">Jane Smith</td>
-            <td class="py-4 px-6 text-gray-800">Rp 8.000.000</td>
-          </tr>
-          <tr class="border-t">
-            <td class="py-4 px-6 text-gray-800">3</td>
-            <td class="py-4 px-6 text-gray-800">Budi Santoso</td>
-            <td class="py-4 px-6 text-gray-800">Rp 5.000.000</td>
-          </tr>
-          <tr class="border-t">
-            <td class="py-4 px-6 text-gray-800">4</td>
-            <td class="py-4 px-6 text-gray-800">Lisa Wijaya</td>
-            <td class="py-4 px-6 text-gray-800">Rp 4.500.000</td>
-          </tr>
-          <tr class="border-t">
-            <td class="py-4 px-6 text-gray-800">5</td>
-            <td class="py-4 px-6 text-gray-800">Ahmad Fauzi</td>
-            <td class="py-4 px-6 text-gray-800">Rp 3.800.000</td>
-          </tr>
+          <?php if (!empty($leaderboard)): ?>
+            <?php $rank = 1; ?>
+            <?php foreach ($leaderboard as $donatur): ?>
+              <tr>
+                <td><?php echo $rank++; ?></td>
+                <td><?php echo htmlspecialchars($donatur['donatur_name']); ?></td>
+                <td>Rp <?php echo number_format($donatur['total_donasi_user'], 0, ',', '.'); ?></td>
+              </tr>
+            <?php endforeach; ?>
+          <?php else: ?>
+            <tr>
+              <td colspan="3" class="no-leaderboard-data">Belum ada donasi untuk campaign ini.</td>
+            </tr>
+          <?php endif; ?>
         </tbody>
         <tfoot>
-          <tr>
-            <td colspan="2" class="py-4 px-6 text-right font-bold text-gray-800">Total Terkumpul:</td>
-            <td class="py-4 px-6 font-bold text-gray-800">Rp 31.300.000</td>
+          <tr class="total-row">
+            <td colspan="2">Total Terkumpul (Leaderboard):</td>
+            <td>Rp <?php echo number_format($total_donasi_leaderboard, 0, ',', '.'); ?></td>
           </tr>
         </tfoot>
       </table>

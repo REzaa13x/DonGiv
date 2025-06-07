@@ -21,6 +21,7 @@ if ($data && password_verify($password, $data['password'])) {
     // Set session
     $_SESSION['user_id'] = $data['id'];
     $_SESSION['user_name'] = $data['name'];
+    $_SESSION['user_email'] = $data['email'];
 
     if ($data['role'] == 'admin') {
         header('Location: ../admin/index.php');

@@ -180,7 +180,9 @@ $display_dana_didonasikan = 'Rp ' . number_format($dana_didonasikan, 0, ',', '.'
       </a>
       <div class="hidden md:flex space-x-6">
         <a href="DonGiv.php" class="text-white hover:text-blue-300">Home</a>
-        <a href="donasi.php" class="text-white hover:text-blue-300">Donations</a> <a href="http://127.0.0.1:5500/Ab.html" class="text-white hover:text-blue-300">About</a>
+        <a href="donasi.php" class="text-white hover:text-blue-300">Donations</a> 
+        <a href="donasi.php" class="text-white hover:text-blue-300">Volunteer</a> 
+        <a href="http://127.0.0.1:5500/Ab.html" class="text-white hover:text-blue-300">About</a>
         <a href="#Contact" class="text-white hover:text-blue-300">Contact</a>
 
         <div class="relative">
@@ -252,9 +254,13 @@ $display_dana_didonasikan = 'Rp ' . number_format($dana_didonasikan, 0, ',', '.'
         <img src="../foto/heart.png" alt="Donasi Saya" class="w-8 h-8">
         <span>Donasi saya</span>
       </a>
-      <a href="http://127.0.0.1:5500/donasirutin.html" class="menu-item flex items-center space-x-4 p-4 hover:bg-gray-100 rounded">
+      <a href="donasirutin.php" class="menu-item flex items-center space-x-4 p-4 hover:bg-gray-100 rounded">
         <img src="../foto/calendar.png" alt="Donasi Rutin Saya" class="w-8 h-8">
         <span>Donasi rutin saya</span>
+      </a>
+      <a href="NotifikasiUser.php" class="menu-item flex items-center space-x-4 p-4 hover:bg-gray-100 rounded">
+        <img src="../foto/notification.png" alt="Donasi Rutin Saya" class="w-8 h-8">
+        <span>notifikasi Relawan</span>
       </a>
       <a href="http://127.0.0.1:5500/setting.html" class="menu-item flex items-center space-x-4 p-4 hover:bg-gray-100 rounded">
         <img src="../foto/settings.png" alt="Settings" class="w-8 h-8">

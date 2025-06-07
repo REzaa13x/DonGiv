@@ -1,4 +1,6 @@
+
 <div class="about-text" id="About"><h1>About</h1></div>
+
 <main>
   <section class="welcome-section">
     <div class="welcome-container">

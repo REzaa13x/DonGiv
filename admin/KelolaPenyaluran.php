@@ -242,6 +242,9 @@ mysqli_close($conn); // Tutup koneksi database
            <a href="User Manajement.php" class="block py-2 px-4 hover:bg-blue-800 rounded-md">
             Manajement User 
           </a>
+          <a href="ManajemenProgram.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">
+                       Manajemen Program
+          </a>
         </div>
       </div>
 

@@ -45,6 +45,33 @@ mysqli_close($conn);
     <style>
         .submenu { /* CUKUP KOSONGKAN INI, JANGAN ADA display: none; */ } 
         .submenu.active { display: block; } /* Ini mungkin tidak lagi diperlukan jika hanya mengandalkan toggle 'hidden' dari Tailwind */
+
+        /* Pastikan tabel Anda memiliki layout yang baik */
+.data-table { /* Ini adalah class tabel Anda dari ManajemenPendaftaranProgram.php */
+    width: 100%; /* Pastikan tabel mengisi lebar yang tersedia */
+    table-layout: fixed; /* Penting! Ini memaksa browser untuk menghormati lebar kolom yang Anda berikan */
+    /* ... gaya tabel lainnya ... */
+}
+
+.data-table th,
+.data-table td {
+    /* ... padding dan border lainnya ... */
+    word-wrap: break-word; /* Tambahkan ini */
+    overflow-wrap: break-word; /* Tambahkan ini */
+}
+
+/* Target kolom deskripsi secara spesifik */
+/* Anda mungkin perlu menambahkan class ke kolom deskripsi atau target berdasarkan posisi */
+.data-table .deskripsi-kolom { /* Contoh: Tambahkan class="deskripsi-kolom" ke <th> dan <td> deskripsi */
+    width: 40%; /* Contoh: Beri 40% lebar tabel */
+    /* Atau nilai pixel tertentu: width: 300px; */
+}
+
+/* Jika Anda tidak mau menambah class, Anda bisa target kolom ke-N (misal kolom ke-4): */
+.data-table th:nth-child(4), /* Ganti angka 4 dengan nomor urut kolom deskripsi Anda */
+.data-table td:nth-child(4) {
+    width: 40%; /* Contoh: Beri 40% lebar tabel */
+}
     </style>
 </head>
 
@@ -68,6 +95,15 @@ mysqli_close($conn);
                 <a href="notifikasi.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Notifikasi dan Email</a>
                 <a href="Manajemen.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Donation</a>
                 <a href="User Manajement.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Manajemen User</a>
+                <a href="ManajemenRelawan.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">
+                        Manajemen Relawan
+                    </a>
+                    <a href="ManajemenProgram.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md active">
+                        Manajemen Program
+                    </a>
+                    <a href="ManajemenPendaftaranProgram.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md active">
+    Manajemen Pendaftaran
+</a>
             </div>
         </div>
         <a href="RiwayatDonasi.php" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
@@ -137,7 +173,7 @@ mysqli_close($conn);
                             </td>
                             <td class="border px-4 py-2"><?= htmlspecialchars($row['nama_donasi'] ?? 'N/A') ?></td>
                             <td class="border px-4 py-2"><?= 'Rp ' . number_format($row['target_dana'] ?? 0, 0, ',', '.') ?></td>
-                            <td class="border px-4 py-2 text-justify">
+                            <td class="border px-4 py-2 text-justify ">
                                 <?php
                                     $display_description = $row['deskripsi'] ?? ''; 
                                     if (empty(trim($display_description)) || $display_description === '0') {

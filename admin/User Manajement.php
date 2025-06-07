@@ -34,6 +34,10 @@ $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
           <a href="notifikasi.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Notifikasi dan Email</a>
           <a href="Manajemen.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Donation</a>
           <a href="User Manajement.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md">Manajemen User</a>
+          <a href="ManajemenProgram.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md"> Manajemen Program</a>
+          <a href="ManajemenPendaftaranProgram.php" class="block py-2 px-6 hover:bg-blue-900 rounded-md active">
+    Manajemen Pendaftaran
+</a>
         </div>
       </div>
       <a href="RiwayatDonasi.php" class="block py-2 px-4 hover:bg-blue-800 rounded-md flex items-center">
