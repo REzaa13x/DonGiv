@@ -10,6 +10,7 @@ body {
   background-color: #ffffff;
   color: #ffffff;
   scroll-margin-top: 100px;
+  padding-top: 64px;
 }
  /* nav */
  nav {
@@ -19,6 +20,7 @@ body {
   z-index: 50;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
+  position: fixed;
 }
 .nav-container {
   display: flex;
@@ -100,6 +102,56 @@ body {
   color: rgba(255, 255, 255, 0.7);
 }
  /* nav */
+.toast-notification-container {
+    position: fixed;
+    top: 80px; /* Disesuaikan: Perkiraan tinggi navbar (60px) + jarak (20px) = 80px dari atas */
+    right: 20px; /* Jarak dari kanan */
+    z-index: 999999; /* Ditingkatkan SANGAT TINGGI agar PASTI di atas segalanya */
+    display: flex;
+    flex-direction: column; /* Untuk menumpuk toast secara vertikal jika ada beberapa */
+    gap: 10px; /* Jarak antar toast */
+    pointer-events: none; /* Biarkan klik mouse melewati kontainer ini agar tidak memblokir elemen di bawahnya */
+}
+
+.toast-notification {
+    background-color: #007bff; /* Menggunakan warna biru info sesuai screenshot */
+    color: white; /* Tetap putih: Teks notifikasi akan putih di latar belakang biru */
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Mulai dari tidak terlihat */
+    transform: translateY(-20px); /* Mulai dari sedikit di atas untuk animasi masuk */
+    animation: slideInFadeIn 0.5s forwards, fadeOut 0.5s forwards 4.5s; /* Animasi masuk & keluar */
+    min-width: 250px;
+    max-width: 350px;
+    pointer-events: auto; /* Aktifkan kembali pointer events agar toast bisa diklik (jika ingin) */
+    position: relative; /* Tetap relatif untuk memastikan z-index bekerja di dalam kontainer flex */
+}
+/* Pastikan warna spesifik untuk error/success/info tetap ada, mereka akan menimpa warna default di atas */
+.toast-notification.error { background-color: #dc3545; }
+.toast-notification.success { background-color: #28a745; }
+.toast-notification.info { background-color: #007bff; }
+
+
+/* Keyframes untuk animasi */
+@keyframes slideInFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
+}
+
+
+/* Pastikan hero section Anda memiliki z-index yang lebih rendah dari toast */
+/* Ganti '.hero-section' dengan kelas HTML yang sebenarnya Anda gunakan untuk div/section hero */
+.hero-section { /* Contoh saja, sesuaikan dengan kelas Anda */
+    position: relative; /* Atau 'absolute', 'fixed', sesuai desain Anda */
+    z-index: 10; /* Pastikan ini jauh di bawah toast */
+    /* ... properti hero lainnya ... */
+}
 
 
 h1 {

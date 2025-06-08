@@ -423,6 +423,7 @@ $conn->close();
             <div class="nav-links">
                 <a href="../users/DonGiv.php#Home">Home</a>
                 <a href="../users/DonGiv.php#Donations">Donations</a>
+                 <a href="#Volunter">Volunteer</a>
                 <a href="../users/DonGiv.php#About">About</a>
                 <a href="../users/DonGiv.php#Contact">Contact</a>
 

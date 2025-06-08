@@ -1,145 +1,192 @@
-/* CSS */
+/* donasirutin.css - KODE CSS YANG HARUS ANDA GUNAKAN */
+
+/* Global Reset (opsional, jika belum ada di file CSS global Anda) */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f8fa;
+    background-color: #f5f8fa; /* Warna latar belakang halaman */
+    color: #333; /* Warna teks default */
 }
 
-.container {
-    max-width: 1200px;
-    margin: 20px auto;
+/* Header (dari kode sebelumnya untuk donasirutin.php) */
+header {
+    background-color: #2563eb; /* Biru */
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    /* Header ini mungkin sticky/fixed di CSS lain, pastikan tidak ada konflik */
+}
+header a { /* Untuk tombol kembali */
+    color: white;
+    text-decoration: none;
+    float: left;
+    font-size: 1.1em;
+}
+
+/* Main content area wrapper (dari kode sebelumnya untuk donasirutin.php) */
+.main-content-donasi-rutin {
     padding: 20px;
-    background-color: #fff;
+    max-width: 1200px;
+    margin: 20px auto; /* Menengahkan konten utama */
+    background-color: #ffffff; /* Latar belakang putih untuk kotak konten */
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.header {
-    background-color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #e3e6ea;
+/* Hero section (banner) styles (dari kode sebelumnya untuk donasirutin.php) */
+.hero-section-donasi-rutin {
+    background-color: #e6f0ff; /* Biru muda */
+    padding: 40px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center; /* Menengahkan teks dan elemen inline */
+}
+.hero-section-donasi-rutin img { /* Gambar di dalam banner */
+    max-width: 150px;
+    height: auto;
     margin-bottom: 20px;
-    border-radius: 10px;
+    /* --- PERBAIKAN UNTUK GAMBAR BANNER DI TENGAH --- */
+    display: block; /* Agar margin auto bekerja */
+    margin-left: auto; /* Menengahkan secara horizontal */
+    margin-right: auto; /* Menengahkan secara horizontal */
 }
-
-.header a {
-    text-decoration: none;
-    color: #3055ec;
-    font-size: 1.5rem;
-    font-weight: bold;
+.hero-section-donasi-rutin h2 {
+    font-size: 2.2rem;
+    color: #2563eb; /* Biru */
+    margin-bottom: 15px;
 }
-
-.header a::before {
-    content: '\2190';
-    margin-right: 10px;
+.hero-section-donasi-rutin p {
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
 }
-
-.banner {
-    background-color: #c4ced9;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.banner img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-.banner h1 {
-    color: #007bff;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.banner p {
-    color: #666;
-    font-size: 1rem;
-}
-
-.buttons {
+.hero-section-donasi-rutin .buttons {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Menengahkan tombol */
     margin-top: 20px;
 }
-
-.buttons button {
-    background-color: #007bff;
-    color: #fff;
+.hero-section-donasi-rutin .buttons button {
+    background-color: #2563eb;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
     border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 1rem;
     cursor: pointer;
+    font-size: 1rem;
     margin: 0 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+.hero-section-donasi-rutin .buttons button:hover {
+    background-color: #1c52a3;
 }
 
-.buttons button:hover {
-    background-color: #5295dc;
-}
-
-.packages {
+/* Packages section styles (dari kode sebelumnya untuk donasirutin.php) */
+#packages {
     margin-top: 30px;
+    text-align: center; /* Menengahkan judul section dan deskripsi */
 }
-
-.packages h2 {
-    font-size: 1.5rem;
+#packages h2 {
+    font-size: 2rem;
     color: #333;
     margin-bottom: 10px;
 }
-
-.packages p {
+#packages p {
     color: #666;
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 20px;
 }
 
-.columns {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+/* Grid for donation cards (dari kode sebelumnya untuk donasirutin.php) */
+.packages-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Menengahkan kartu dalam grid */
+    gap: 20px; /* Jarak antar kartu */
+    margin-top: 30px;
 }
-
-.column {
-    flex: 1;
-    background-color: #f9f9f9;
-    border: 1px solid #e3e6ea;
-    border-radius: 10px;
-    text-decoration: none;
+.donation-card { /* Ini adalah `.column` di kode CSS lama Anda */
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 15px; /* Margin eksternal kartu */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* --- PERBAIKAN UNTUK KONTEN KARTU DI TENGAH --- */
+    display: flex; /* Menggunakan flexbox untuk penataan internal */
+    flex-direction: column;
+    align-items: center; /* Menengahkan item secara horizontal di dalam flex container */
+    text-align: center; /* Untuk teks */
+    justify-content: space-between; /* Untuk mendorong tombol ke bawah */
+    flex: 1 1 calc(33% - 30px); /* Untuk 3 kolom dengan gap */
+    min-width: 280px; /* Lebar minimum kartu */
+    max-width: 350px; /* Lebar maksimum kartu */
 }
-.column:hover {
+.donation-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.column img {
-    width: 100%;
+.donation-card img { /* Gambar di dalam kartu paket */
+    max-width: 100%;
     height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    /* --- GAMBAR DI TENGAH DI DALAM KARTU --- */
+    display: block; /* Agar margin auto bekerja */
+    margin-left: auto; /* Menengahkan secara horizontal */
+    margin-right: auto; /* Menengahkan secara horizontal */
+    min-height: 150px; /* Pastikan tinggi minimum untuk area gambar */
+    object-fit: cover; /* Menutupi area, mungkin memotong gambar */
 }
 
-.column h3 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.column p {
+/* Style spesifik untuk elemen di dalam kartu donasi */
+.donation-card p:first-of-type { /* Style untuk "Untuk Program: #..." */
     color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    min-height: 2.5em; /* Memastikan tinggi konsisten untuk baris nama program */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Menengahkan item secara horizontal */
 }
 
-.column span {
+.donation-card h3 {
+    font-size: 1.5rem;
+    color: #2563eb; /* Biru */
+    margin-bottom: 10px;
+}
+.donation-card p {
+    color: #555;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+.donation-card .amount {
+    font-size: 1.8rem;
     font-weight: bold;
-    color: #007bff;
+    color: #1a202c;
+    margin-bottom: 20px;
+}
+.donation-card button {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    align-self: center; /* Menengahkan tombol jika parent adalah flex column */
+    width: 80%; /* Membuat tombol lebih lebar */
+}
+.donation-card button:hover {
+    background-color: #1c52a3;
+}
+
+/* Footer styles (dari kode sebelumnya) */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    margin-top: 50px;
+    border-top: 1px solid #e0e0e0;
 }
